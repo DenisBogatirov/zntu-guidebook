@@ -31,7 +31,7 @@ public class dzvonic extends Activity {
         clMailn.ItemClick(id);
         return true;
     }
-кооментарий
+кооментарий  віа
     */
 
      protected void onCreate(Bundle savedInstanceState) {
