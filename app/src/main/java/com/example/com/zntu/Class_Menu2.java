@@ -29,7 +29,6 @@ public class Class_Menu2 extends Activity {
     }
 
 /*
-
         //Установка слушателя для выпадающего списка
         Spinner spinner = (Spinner) findViewById(R.id.DovidnikSp);
         // Создаем адаптер ArrayAdapter с помощью массива строк и стандартной разметки элемента spinner
