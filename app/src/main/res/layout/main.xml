@@ -1,0 +1,123 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"  tools:context=".MainActivity"
+    android:background="@drawable/korpus">
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+        android:maxHeight="190dp"
+        android:layout_weight="10">
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/btnFnd"
+        android:src="@drawable/find"
+        android:layout_weight="1"
+        android:background="@drawable/pusto" />
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/btnCall"
+        android:src="@drawable/raspisanie"
+        android:layout_weight="1"
+        android:background="@drawable/pusto" />
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Find"
+            android:id="@+id/textView3"
+
+            android:textIsSelectable="false"
+            android:layout_weight="0.54"
+            android:editable="false"
+            android:enabled="true"
+            android:gravity="center"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Volume"
+            android:id="@+id/textView4"
+            android:textSize="16sp"
+            android:layout_weight="0.45"
+            android:editable="false"
+            android:enabled="true"
+            android:gravity="center"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:layout_weight="10">
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/btnZntu"
+        android:src="@drawable/zntu_gerb"
+        android:layout_weight="1"
+        android:background="@drawable/pusto" />
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/btnUnn"
+        android:src="@drawable/profsouz_st"
+        android:layout_weight="1"
+        android:background="@drawable/pusto" />
+</LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"  >
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Zntu"
+            android:id="@+id/textView5"
+            android:textSize="16sp"
+            android:layout_weight="1"
+            android:enabled="true"
+            android:gravity="center"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/prof"
+            android:id="@+id/textView6"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_weight="1"
+            android:textIsSelectable="false"
+            android:enabled="true"
+            android:gravity="center"
+            />
+    </LinearLayout>
+</LinearLayout>

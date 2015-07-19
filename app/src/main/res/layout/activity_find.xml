@@ -1,0 +1,107 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:background="@drawable/korpus">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:ellipsize="start"
+        android:gravity="center"
+
+
+        android:inputType="number"
+        android:id="@+id/etNumb"
+        android:layout_below="@+id/tvMes"
+        android:layout_alignLeft="@+id/tvMes"
+        android:layout_alignStart="@+id/tvMes"
+        android:layout_alignRight="@+id/tvMes"
+        android:layout_alignEnd="@+id/tvMes" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Введіть номер аудиторії"
+        android:id="@+id/tvMes"
+        android:layout_marginTop="160dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+
+
+
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvHsN"
+        android:gravity="left"
+        android:textAlignment="gravity"
+        android:layout_below="@+id/btnFnd"
+        android:layout_alignRight="@+id/btnFnd"
+        android:layout_alignEnd="@+id/btnFnd"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Знайти аудиторію"
+        android:id="@+id/btnFnd"
+        android:layout_below="@+id/etNumb"
+        android:layout_alignRight="@+id/etNumb"
+        android:layout_alignEnd="@+id/etNumb"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:text="Показати на карті"
+        android:id="@+id/btnShow"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_alignRight="@+id/tvFlrN"
+        android:layout_alignEnd="@+id/tvFlrN" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:layout_alignTop="@+id/tvHsN"
+        android:layout_alignLeft="@+id/tvMes"
+        android:layout_alignStart="@+id/tvMes"
+        android:text="@string/house"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/floor"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/textView"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvFlrN"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignRight="@+id/btnFnd"
+        android:layout_alignEnd="@+id/btnFnd"
+        android:layout_below="@+id/tvHsN"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+
+</RelativeLayout>

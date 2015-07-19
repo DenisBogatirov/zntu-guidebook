@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.com.zntu" >
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_zntu"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+
+
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".FindActivity"
+            android:label="@string/title_activity_find" >
+        </activity>
+
+
+        <activity
+            android:name=".dzvonic"
+            android:label="@string/dzvonic" >
+        </activity>
+
+
+        <activity
+            android:name=".web_lay"
+            android:label="@string/dzvonic" >
+        </activity>
+
+        <activity
+            android:name=".Class_Menu1"
+            android:label="Налаштування" >
+        </activity>
+
+        <activity
+            android:name=".Class_Menu2"
+            android:label="Довідник" >
+        </activity>
+
+
+        <activity
+            android:name=".ShowMapActivity"
+            android:label="@string/title_activity_show_map"
+            >
+
+        </activity>
+    </application>
+</manifest>

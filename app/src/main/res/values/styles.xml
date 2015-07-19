@@ -1,0 +1,26 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    </style>
+
+    <style name="bgmenu1" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:background">@color/bg_menu</item>
+    </style>
+
+    <color name="bg_menu">#FFFFFF</color>
+    <color name="dzvonic">#B6CCFA</color>
+
+    <style name="lightSpinner" parent="android:Theme.DeviceDefault.InputMethod">
+
+
+
+    </style>
+    <style name="spinnerItemStyle" parent="android:Widget.TextView.SpinnerItem">
+
+    </style>
+
+    <style name="spinnerDropDownItemStyle" parent="android:TextAppearance.Widget.TextView.SpinnerItem">
+
+    </style>
+
+</resources>
