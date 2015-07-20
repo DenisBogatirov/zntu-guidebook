@@ -53,6 +53,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     ImageButton btnFnd;
     ImageButton btnUnn;
 
+    Button TestGIt;
+
+
     String line="0";
     String saved="0";
 
