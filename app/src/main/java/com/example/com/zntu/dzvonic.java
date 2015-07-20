@@ -17,7 +17,7 @@ import java.util.GregorianCalendar;
 
 public class dzvonic extends Activity {
 
-    /*
+    /*   sfg
     public boolean onCreateOptionsMenu(Menu menus) {
         getMenuInflater().inflate(R.menu.menu_main, menus);
         return true;
