@@ -10,6 +10,8 @@ import android.os.Bundle;
 public class Class_Menu2 extends Activity {
 
 
+
+    //Privet Push Commit Pull
  //   final Spinner DovSpinner = (Spinner)findViewById(R.id.DovidnikSp);
 
 

@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 public class FindActivity extends Activity implements View.OnClickListener {
 
+    EditText iVotTyt;
     Button btnFnd,btnShow;
     EditText etNumb;
     TextView tvMes, tvHsN, tvFlrN;
