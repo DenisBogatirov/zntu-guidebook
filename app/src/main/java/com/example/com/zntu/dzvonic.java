@@ -22,7 +22,6 @@ public class dzvonic extends Activity {
         getMenuInflater().inflate(R.menu.menu_main, menus);
         return true;
     }
-апівп
 
 
     public boolean onOptionsItemSelected(MenuItem item) {

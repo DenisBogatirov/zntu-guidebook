@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
-    <mapping directory="" vcs="" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/putevoditel-zntu5631321321321321321" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/testGitlabTest" vcs="Git" />
+    <mapping directory="D:\GOOGLE_ZNTU\UNIVER\it_voluu\ZNTU_Beta2\putevoditel-zntu" vcs="Git" />
   </component>
 </project>
-
