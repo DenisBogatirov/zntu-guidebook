@@ -20,38 +20,41 @@ public class Class_Menu2 extends Activity {
  //   final Spinner DovSpinner = (Spinner)findViewById(R.id.DovidnikSp);
 
 
-    protected void onCreate(Bundle savedInstanceState) {
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_dzin2);
 
-    }
 
-        //Установка слушателя для выпадающего списка
-        Spinner spinner = (Spinner) findViewById(R.id.DovidnikSp);
-        // Создаем адаптер ArrayAdapter с помощью массива строк и стандартной разметки элемента spinner
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.TelephoneList, android.R.layout.simple_spinner_item);
-        // Определяем разметку для использования при выборе элемента
+
+        String[] data = R.array.TelephoneList;
+        // адаптер
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Применяем адаптер к элементу spinner
+
+        Spinner spinner = (Spinner) findViewById(R.id.DovidnikSp);
         spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
-
+        // заголовок
+        spinner.setPrompt("Title");
+        // выделяем элемент
+        spinner.setSelection(2);
+        // устанавливаем обработчик нажатия
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                // показываем позиция нажатого элемента
+                Toast.makeText(getBaseContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
     }
-    public void onItemSelected(AdapterView<?> parent, View view,
-                               int pos, long id) {
-        // Получаем выбранный объект
-        Object item = parent.getItemAtPosition(pos);
-
-        Toast.makeText(getApplicationContext(), item.toString(), Toast.LENGTH_LONG).show();
-    }
-
-    public void onNothingSelected(AdapterView<?> parent) {
-        // Обработка события
-    }
 
 
-    */
+
 
 
     }
