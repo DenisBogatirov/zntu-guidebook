@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.Arrays;
+
 
 /**
  * Created by 1injener on 16.07.15.
@@ -28,7 +30,7 @@ public class Class_Menu2 extends Activity {
 
 
 
-        String[] data = R.array.TelephoneList;
+        String[] data = Arrays.asList(R.array.TelephoneList);
         // адаптер
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
