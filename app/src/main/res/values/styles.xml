@@ -10,17 +10,17 @@
     <color name="bg_menu">#FFFFFF</color>
     <color name="dzvonic">#B6CCFA</color>
 
-    <style name="lightSpinner" parent="android:Theme.DeviceDefault.InputMethod">
 
 
-
-    </style>
-    <style name="spinnerItemStyle" parent="android:Widget.TextView.SpinnerItem">
-
+    <style name="SpinnerStyleMY">
+        <item name="android:spinnerStyle">@style/Widget.Spinner</item>
     </style>
 
-    <style name="spinnerDropDownItemStyle" parent="android:TextAppearance.Widget.TextView.SpinnerItem">
 
+    <style name="Widget.Spinner" parent="android:Widget">
+        <item name="android:background">@drawable/drop_down</item>
+        <item name="android:clickable">true</item>
     </style>
+
 
 </resources>

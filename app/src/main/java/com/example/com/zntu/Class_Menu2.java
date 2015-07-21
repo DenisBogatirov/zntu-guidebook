@@ -2,6 +2,8 @@ package com.example.com.zntu;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 
 /**
@@ -10,42 +12,26 @@ import android.os.Bundle;
 public class Class_Menu2 extends Activity {
 
 
- //   final Spinner DovSpinner = (Spinner)findViewById(R.id.DovidnikSp);
-
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_dzin2);
 
-    }
 
-/*
-        //Установка слушателя для выпадающего списка
-        Spinner spinner = (Spinner) findViewById(R.id.DovidnikSp);
-        // Создаем адаптер ArrayAdapter с помощью массива строк и стандартной разметки элемента spinner
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.TelephoneList, android.R.layout.simple_spinner_item);
-        // Определяем разметку для использования при выборе элемента
+        // Получаем экземпляр элемента Spinner
+        final Spinner spinner_lay = (Spinner)findViewById(R.id.DovidnikSp);
+
+// Настраиваем адаптер
+        ArrayAdapter<?> adapter =
+                ArrayAdapter.createFromResource(this, R.array.TelephoneList, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Применяем адаптер к элементу spinner
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
 
-    }
-    public void onItemSelected(AdapterView<?> parent, View view,
-                               int pos, long id) {
-        // Получаем выбранный объект
-        Object item = parent.getItemAtPosition(pos);
+// Вызываем адаптер
+        spinner_lay.setAdapter(adapter);
 
-        Toast.makeText(getApplicationContext(), item.toString(), Toast.LENGTH_LONG).show();
-    }
 
-    public void onNothingSelected(AdapterView<?> parent) {
-        // Обработка события
     }
 
 
-    */
 
 
     }
