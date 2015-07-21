@@ -17,12 +17,12 @@ import java.util.GregorianCalendar;
 
 public class dzvonic extends Activity {
 
-    TextView SmotriTyt;
-    /*   sfg
+    /*
     public boolean onCreateOptionsMenu(Menu menus) {
         getMenuInflater().inflate(R.menu.menu_main, menus);
-        return true; ВОТ Я ЧТО ТО ИЗМЕНИЛ
+        return true;
     }
+
 
 
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -31,7 +31,7 @@ public class dzvonic extends Activity {
         clMailn.ItemClick(id);
         return true;
     }
-кооментарий  віа
+
     */
 
      protected void onCreate(Bundle savedInstanceState) {

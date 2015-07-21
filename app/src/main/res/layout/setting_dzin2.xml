@@ -8,9 +8,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/DovidnikSp"
+        android:layout_gravity="center_horizontal"
         android:entries="@array/TelephoneList"
         android:paddingTop="20dp"
-         />
+        android:touchscreenBlocksFocus="false"
+        android:transitionGroup="false"
+        android:focusableInTouchMode="false"
+        android:longClickable="false"
+        android:nestedScrollingEnabled="false"
+        android:accessibilityLiveRegion="polite"
+        android:theme="@style/AppTheme"/>
 
     <ScrollView
         android:layout_width="match_parent"
