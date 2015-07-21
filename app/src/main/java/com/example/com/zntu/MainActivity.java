@@ -55,7 +55,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     Button TestGIt;
     Button TestGit2;
-
+    //Комментарий я написал вот тут
+    //
 
     String line="0";
     String saved="0";

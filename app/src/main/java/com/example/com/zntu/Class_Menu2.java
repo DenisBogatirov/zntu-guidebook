@@ -2,6 +2,11 @@ package com.example.com.zntu;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 
 /**
@@ -21,7 +26,6 @@ public class Class_Menu2 extends Activity {
 
     }
 
-/*
         //Установка слушателя для выпадающего списка
         Spinner spinner = (Spinner) findViewById(R.id.DovidnikSp);
         // Создаем адаптер ArrayAdapter с помощью массива строк и стандартной разметки элемента spinner
