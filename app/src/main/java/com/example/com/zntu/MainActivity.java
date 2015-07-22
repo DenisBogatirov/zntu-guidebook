@@ -44,6 +44,17 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
+
+/*
+
+Intent myIntent = new Intent(Intent.ACTION_CALL, Uri.parse(“tel:” + Contacts_Phone));
+myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+startActivity(myIntent);
+
+ */
+
+
+
 public class MainActivity extends Activity implements View.OnClickListener {
     int mCounter;
     int flag_dzin;

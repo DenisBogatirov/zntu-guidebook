@@ -32,12 +32,13 @@
     <string name="selector">ЕПт</string>
 
     <string name="Decanat"><h1>Транспортний факультет</h1></string>
-
+    <string name="texttest">Єто просто текст которій буде тут отобрадтсья когда я сделаю все как мнетнеобходимо рабоаіп</string>
 
 
     <string-array name="TelephoneList">
 
         <item>Профком студентів ЗНТУ</item>
+        <item>Телефони ЗНТУ</item>
         <item>(ТФ) Транспортний факультет</item>
         <item>(МФ) Машинобудівний факультет</item>
         <item>(ІФ) Інженерно-фізичний факультет</item>
