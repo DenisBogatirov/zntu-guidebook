@@ -4,34 +4,13 @@
     android:layout_height="match_parent"
     android:background="@drawable/korpus">
 
-    <Spinner
+
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/DovidnikSp"
-        android:entries="@array/TelephoneList"
-        android:theme="@style/SpinnerStyleMY"
-        android:padding="5dp"
-        android:prompt="@string/selector"
-        android:spinnerMode="dropdown"
-        android:textColor="#000000"
-        />
-
-
-
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/scrollView">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/Decanat"
-            android:id="@+id/textView18"
-            android:clickable="false"
-            android:paddingTop="50dp" />
-    </ScrollView>
+        android:id="@+id/listViewDovidka"
+        android:layout_gravity="center_horizontal"
+        android:entries="@array/TelephoneList" />
 
 </LinearLayout>
+
