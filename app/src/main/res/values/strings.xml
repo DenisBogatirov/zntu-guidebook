@@ -33,6 +33,8 @@
 
     <string name="Decanat"><h1>Транспортний факультет</h1></string>
     <string name="texttest">Єто просто текст которій буде тут отобрадтсья когда я сделаю все как мнетнеобходимо рабоаіп</string>
+    <string name="DovText">Довідка ЗНТУ</string>
+    <string name="vidsutnyaD">Довідка відсутня</string>
 
 
     <string-array name="TelephoneList">

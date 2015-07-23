@@ -1,6 +1,7 @@
 package com.example.com.zntu;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,12 +23,10 @@ public class Class_Menu2 extends Activity {
         setContentView(R.layout.setting_dzin2);
 
         final ListView listView_Dovidka = (ListView)findViewById(R.id.listViewDovidka);
-        final ScrollView scrollView_Dovidka = (ScrollView)findViewById(R.id.scrollViewDovidka);
 
 
 
         listView_Dovidka.setVisibility(View.VISIBLE);
-        scrollView_Dovidka.setVisibility(View.INVISIBLE);
 
 // определяем массив типа String
         final String[] catnames = getResources().getStringArray(R.array.TelephoneList);
@@ -35,19 +34,17 @@ public class Class_Menu2 extends Activity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,	android.R.layout.simple_list_item_1, catnames);
         listView_Dovidka.setAdapter(adapter);
 
-
         listView_Dovidka.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
 
-                Toast.makeText(getApplicationContext(), ((TextView)itemClicked).getText(),
-                        Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(getApplicationContext(), position, Toast.LENGTH_SHORT).show();
 
 
-
-               // if()
-                listView_Dovidka.setVisibility(View.INVISIBLE);
-                scrollView_Dovidka.setVisibility(View.VISIBLE);
+//                Intent intent = new Intent(Class_Menu2.this, Class_Menu2_Sub.class);
+              //  intent.putExtra("fname", .getTag().toString());
+//                startActivity(intent);
 
 
             }
