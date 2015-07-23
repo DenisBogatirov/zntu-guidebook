@@ -4,13 +4,28 @@
     android:layout_height="match_parent"
     android:background="@drawable/korpus">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/DovText"
+        android:id="@+id/textView19"
+        android:autoLink="phone"
+        android:padding="20dp"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold" />
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/listViewDovidka"
         android:layout_gravity="center_horizontal"
         android:entries="@array/TelephoneList"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:textSize="10sp"
+        android:divider="@color/reddivider"
+        android:dividerHeight="@dimen/twodp"
+        android:clickable="false" />
 
 </LinearLayout>
 

@@ -3,6 +3,7 @@ package com.example.com.zntu;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,7 +18,7 @@ import android.widget.Toast;
  * Created by 1injener on 16.07.15.
  */
 public class Class_Menu2 extends Activity {
-
+    private static final String TAG = "myLogs";
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_dzin2);
@@ -36,15 +37,16 @@ public class Class_Menu2 extends Activity {
 
         listView_Dovidka.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View itemClicked, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
 
-                Toast.makeText(getApplicationContext(), position, Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "itemClick: position = " + id);
+               Intent intent = new Intent(Class_Menu2.this, Class_Menu2_Sub.class);
 
+                String ListPos = position + "";
 
-//                Intent intent = new Intent(Class_Menu2.this, Class_Menu2_Sub.class);
-              //  intent.putExtra("fname", .getTag().toString());
-//                startActivity(intent);
+                intent.putExtra("txtPoz", ListPos);
+               startActivity(intent);
 
 
             }
