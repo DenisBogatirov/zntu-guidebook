@@ -10,7 +10,7 @@
     <color name="bg_menu">#FFFFFF</color>
     <color name="dzvonic">#B6CCFA</color>
 
-    <color name="reddivider">#fff8e3a9</color>
+    <color name="reddivider">#ffb8b7b7</color>
     <dimen name="twodp">2dp</dimen>
 
     <style name="SpinnerStyleMY">

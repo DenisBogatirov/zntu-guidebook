@@ -56,13 +56,33 @@
     </string-array>
 
     <string name="TelephoneList0">
-      <p><b>Профком студентів ЗНТУ</b></p>
-то телефоны профкома студентов ЗНТУ +380992596006
-        +306124578963
-        http://1injener.ru
-        Э
-    </string>
+        &lt;p&gt;&lt;b&gt;Профком студентів ЗНТУ&lt;/b&gt;&lt;/p&gt;
 
+        &lt;p&gt;&lt;b&gt;Голова профкому студентів, аспірантів та докторантів ЗНТУ:&lt;/b&gt;&lt;br&gt;
+        (Іванченко Андрій Володимирович)&lt;br&gt;
+        &lt;b&gt;Тел.&lt;/b&gt; +380612244235&lt;br&gt;
+        &lt;b&gt;E-mail:&lt;/b&gt; andiva@zntu.edu.ua
+        &lt;/p&gt;
+
+        &lt;p&gt;&lt;b&gt;Заступник голови профкому студентів ЗНТУ:&lt;/b&gt;&lt;br&gt;
+        (Дубина Вадим Миколайович)&lt;br&gt;
+        &lt;b&gt;Тел.&lt;/b&gt; +380617698211&lt;br&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;&lt;b&gt;Помічник голови профкому студентів ЗНТУ:&lt;/b&gt;&lt;br&gt;
+        (Кашуба Юлія)&lt;br&gt;
+        &lt;b&gt;Тел.&lt;/b&gt; +380612244235&lt;br&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;&lt;b&gt;Адреса:&lt;/b&gt;&lt;br&gt;
+        69063, м. Запоріжжя, вул. Жуковського 64, к.368-А &lt;/p&gt;
+
+        &lt;p&gt;&lt;b&gt;Начальник Центру сприяння працевлаштуванню студентів та випускників ЗНТУ:&lt;/b&gt;&lt;br&gt;
+        (Ігнашова Анастасія Вікторівна)&lt;br&gt;
+        &lt;b&gt;Тел.&lt;/b&gt; +380617644592&lt;br&gt;
+        &lt;b&gt;E-mail:&lt;/b&gt; sp.zntu@gmail.com
+        &lt;/p&gt;
+    </string>
 
 
 </resources>

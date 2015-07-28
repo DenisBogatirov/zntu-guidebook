@@ -59,7 +59,6 @@ public class Class_Menu1 extends Activity implements
             ed.putString(APP_PREFERENCES_DZIN2, "0");
             ed.apply();
 
-
             DZIN2 = getPreferences(MODE_PRIVATE);
             String saved = DZIN2.getString(APP_PREFERENCES_DZIN2, "0");
 

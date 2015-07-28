@@ -273,17 +273,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
                             notificationManager.notify(NOTIFY_ID, notification);
 
 
-
-
-                            /*
-
                                 if(savedText.equals("1")){
 
                                 } else {
                                     MediaPlayer mp = MediaPlayer.create(MainActivity.this, R.raw.zvuk_omg);
                                                 mp.start();
                                 }
-*/
+
                         }
 
                     } catch (Exception e) {
