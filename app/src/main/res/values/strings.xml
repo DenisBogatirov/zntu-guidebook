@@ -13,6 +13,10 @@
     <string name="Zntu">Сайт ЗНТУ</string>
     <string name="prof">Сайт Профкому студентів</string>
     <string name="dzvonic">Розклад дзвінків ЗНТУ</string>
+     <string name="find_aud">Знайти аудиторію</string>
+    <string name="aud_num">Введіть номер аудиторії</string>
+    <string name="pokaz_aud">Показати на карті</string>
+
 
       <string name="para1">1 пара: 08:30 - 09:50</string>
       <string name="para2">2 пара: 10:05 - 11:25</string>
@@ -83,6 +87,7 @@
         &lt;b&gt;E-mail:&lt;/b&gt; sp.zntu@gmail.com
         &lt;/p&gt;
     </string>
+    <string name="fing_aud">Знайти аудиторію</string>
 
 
 </resources>

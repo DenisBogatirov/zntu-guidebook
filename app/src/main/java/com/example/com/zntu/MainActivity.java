@@ -15,6 +15,8 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.StrictMode;
 import android.preference.PreferenceManager;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -249,7 +251,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                                     0, notificationIntent,
                                     PendingIntent.FLAG_CANCEL_CURRENT);
 
-                            Resources res = context.getResources();
+                           // Resources res = context.getResources();
+
+
                             Notification.Builder builder = new Notification.Builder(context);
 
                             builder.setContentIntent(contentIntent)
@@ -258,15 +262,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
                                   // .setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.zntu_notif))
                                 //   .setTicker(res.getString(R.string.warning)) // текст в строке состояния
                                     .setTicker("Профком студентів ЗНТУ - Новини")
-                                    .setWhen(System.currentTimeMillis())
-                                    .setAutoCancel(true)
+                                  //  .setWhen(System.currentTimeMillis())
+                                    //.setAutoCancel(true)
                                      //.setContentTitle(res.getString(R.string.notifytitle)) // Заголовок уведомления
                                     .setContentTitle("Профком студентів")
                                       //.setContentText(res.getString(R.string.notifytext))
-                                    .setContentText("Оновлення новин на сайті Профкому"); // Текст уведомленимя
+                                    .setContentText("Оновлення новин на сайті Профкому") // Текст уведомленимя
+                            .setDefaults(Notification.DEFAULT_SOUND).setAutoCancel(true);
 
-                             Notification notification = builder.getNotification(); // до API 16
-                            //Notification notification = builder.build();
+                            // Notification notification = builder.getNotification(); // до API 16
+                            Notification notification = builder.build();
 
                             NotificationManager notificationManager = (NotificationManager) context
                                     .getSystemService(Context.NOTIFICATION_SERVICE);
