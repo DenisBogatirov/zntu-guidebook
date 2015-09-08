@@ -208,7 +208,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
                     StrictMode.setThreadPolicy(policy);
 
-                    try {
+ /*                   try {
 
 
 
@@ -292,6 +292,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         Log.e("log_tag", "Error in http connection " + e.toString());
                     }
 
+
+                    */
                 }
             });
 
@@ -299,6 +301,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
 
     }
+
+
 
 }
 

@@ -11,7 +11,7 @@
     <string name="Find">Знайти аудиторию</string>
     <string name="Volume">Розклад дзвінків</string>
     <string name="Zntu">Сайт ЗНТУ</string>
-    <string name="prof">Сайт Профкому студентів</string>
+    <string name="prof">Новини Профкому студентів</string>
     <string name="dzvonic">Розклад дзвінків ЗНТУ</string>
      <string name="find_aud">Знайти аудиторію</string>
     <string name="aud_num">Введіть номер аудиторії</string>
@@ -88,6 +88,132 @@
         &lt;/p&gt;
     </string>
     <string name="fing_aud">Знайти аудиторію</string>
+
+
+
+
+
+      <string name="TelephoneList1">
+
+    </string>
+
+     <string name="TelephoneList2">
+    &lt;p&gt;&lt;b&gt;Транспортний факультет&lt;/b&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;b&gt;Адреса деканату:&lt;/b&gt;&lt;br&gt; вул. Жуковського 64, м. Запоріжжя, Україна, 69063&lt;br&gt;
+    &lt;b&gt;Аудиторія (кабінет):&lt;/b&gt; 245&lt;br&gt;
+    &lt;b&gt;Тел.:&lt;/b&gt; +380(61)7698317, +380(61)7644656&lt;br&gt;
+    &lt;b&gt;E-mail:&lt;/b&gt; dekanat_tf@zntu.edu.ua
+    &lt;/p&gt;
+    </string>
+
+     <string name="TelephoneList3">
+&lt;p&gt;&lt;b&gt;Машинобудівний факультет&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Адреса деканату:&lt;/b&gt;&lt;br&gt; вул. Жуковського 64, м. Запоріжжя, Україна, 69063&lt;br&gt;
+&lt;b&gt;Аудиторія (кабінет):&lt;/b&gt; 380&lt;br&gt;
+&lt;b&gt;Тел.:&lt;/b&gt; +380(61)7698350, +380(61)7644423&lt;br&gt;
+&lt;b&gt;E-mail:&lt;/b&gt; dekanat_mbf@zntu.edu.ua
+&lt;/p&gt;
+    </string>
+
+
+     <string name="TelephoneList4">
+&lt;p&gt;&lt;b&gt;Інженерно-фізичний факультет&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Адреса деканату:&lt;/b&gt;&lt;br&gt; вул. Жуковського 64, м. Запоріжжя, Україна, 69063&lt;br&gt;
+&lt;b&gt;Аудиторія (кабінет):&lt;/b&gt; 345&lt;br&gt;
+&lt;b&gt;Тел.:&lt;/b&gt; +380(61)7644674, +380(61)7698414&lt;br&gt;
+&lt;b&gt;E-mail:&lt;/b&gt; dekanat_if@zntu.edu.ua
+&lt;/p&gt;
+    </string>
+
+
+     <string name="TelephoneList5">
+&lt;p&gt;&lt;b&gt;Електротехнічний факультет&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Адреса деканату:&lt;/b&gt;&lt;br&gt; вул. Жуковського 64, м. Запоріжжя, Україна, 69063&lt;br&gt;
+&lt;b&gt;Аудиторія (кабінет):&lt;/b&gt; 266&lt;br&gt;
+&lt;b&gt;Тел.:&lt;/b&gt; +380(61)7644625, +380(61)7698426&lt;br&gt;
+&lt;b&gt;E-mail:&lt;/b&gt; dekanat_etf@zntu.edu.ua
+&lt;/p&gt;
+    </string>
+
+
+     <string name="TelephoneList6">
+&lt;p&gt;&lt;b&gt;Факультет радіоелектроніки та телекомунікацій&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Адреса деканату:&lt;/b&gt;&lt;br&gt; вул. Жуковського 64, м. Запоріжжя, Україна, 69063&lt;br&gt;
+&lt;b&gt;Аудиторія (кабінет):&lt;/b&gt; 369&lt;br&gt;
+&lt;b&gt;Тел.:&lt;/b&gt; +380(61)7698306, +380(61)7634258&lt;br&gt;
+&lt;b&gt;E-mail:&lt;/b&gt; dekanat_fret@zntu.edu.ua
+&lt;/p&gt;
+    </string>
+
+
+    <string name="TelephoneList7">
+&lt;p&gt;&lt;b&gt;Факультет комп’ютерних наук і технологій&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Адреса деканату:&lt;/b&gt;&lt;br&gt; вул. Жуковського 64, м. Запоріжжя, Україна, 69063&lt;br&gt;
+&lt;b&gt;Аудиторія (кабінет):&lt;/b&gt; 362&lt;br&gt;
+&lt;b&gt;Тел.:&lt;/b&gt; +380(61)7643361&lt;br&gt;
+&lt;b&gt;E-mail:&lt;/b&gt; dekanat_fiot@zntu.edu.ua
+&lt;/p&gt;
+    </string>
+
+
+    <string name="TelephoneList8">
+&lt;p&gt;&lt;b&gt;Факультет економіки та управління&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Адреса деканату:&lt;/b&gt;&lt;br&gt; вул. Жуковського 64, м. Запоріжжя, Україна, 69063&lt;br&gt;
+&lt;b&gt;Аудиторія (кабінет):&lt;/b&gt; 278, 277-Б&lt;br&gt;
+&lt;b&gt;Тел.:&lt;/b&gt; +380(61)7643416, +380(61)7698407, +380(61)7698233, методисти – +380(61)7642329&lt;br&gt;
+&lt;b&gt;E-mail:&lt;/b&gt; dekanat_feu@zntu.edu.ua
+&lt;/p&gt;
+    </string>
+
+
+    <string name="TelephoneList9">
+&lt;p&gt;&lt;b&gt;Гуманітарний факультет&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Адреса деканату:&lt;/b&gt;&lt;br&gt; вул. Жуковського 64, м. Запоріжжя, Україна, 69063&lt;br&gt;
+&lt;b&gt;Аудиторія (кабінет):&lt;/b&gt; 273&lt;br&gt;
+&lt;b&gt;Тел.:&lt;/b&gt; +38(061)7698307&lt;br&gt;
+&lt;b&gt;E-mail:&lt;/b&gt; dekanat_gf@zntu.edu.ua
+&lt;/p&gt;
+    </string>
+
+
+    <string name="TelephoneList10">
+&lt;p&gt;&lt;b&gt;Факультет управління фізичною культурою та спортом&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Адреса деканату:&lt;/b&gt;&lt;br&gt; вул. Тургенєва 39, м. Запоріжжя, Україна, 69063&lt;br&gt;
+&lt;b&gt;Аудиторія (кабінет):&lt;/b&gt; 392a (IV корпус)&lt;br&gt;
+&lt;b&gt;Тел.:&lt;/b&gt; +380(61)7698308&lt;br&gt;
+&lt;b&gt;E-mail:&lt;/b&gt; dekanat_ufks@zntu.edu.ua
+&lt;/p&gt;
+    </string>
+
+
+   <string name="TelephoneList11">
+&lt;p&gt;&lt;b&gt;Факультет міжнародного туризму та управління персоналом&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Адреса деканату:&lt;/b&gt;&lt;br&gt; вул. Тургенєва 39, м. Запоріжжя, Україна, 69063&lt;br&gt;
+&lt;b&gt;Аудиторія (кабінет):&lt;/b&gt; 385 (IV корпус)&lt;br&gt;
+&lt;b&gt;Тел.:&lt;/b&gt; +380(61)7698568&lt;br&gt;
+&lt;b&gt;E-mail:&lt;/b&gt; dekanat_mtu@zntu.edu.ua
+&lt;/p&gt;
+    </string>
+
+<string name="TelephoneList12">
+&lt;p&gt;&lt;b&gt;Гуманітарно-правовий факультет&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Адреса деканату:&lt;/b&gt;&lt;br&gt; вул. Тургенєва 39, м. Запоріжжя, Україна, 69063&lt;br&gt;
+&lt;b&gt;Аудиторія (кабінет):&lt;/b&gt; 491 (IV корпус)&lt;br&gt;
+&lt;b&gt;Тел.:&lt;/b&gt; +380(61)7698567&lt;br&gt;
+&lt;b&gt;E-mail:&lt;/b&gt; dekanat_gp@zntu.edu.ua
+&lt;/p&gt;
+    </string>
 
 
 </resources>
