@@ -30,15 +30,26 @@ public class Class_Menu1 extends Activity implements
 
         toogleButton = (ToggleButton) findViewById(R.id.toggleButton);
 
- /*       if (DZIN2.contains(APP_PREFERENCES_DZIN2)) {
-            flag_dzin2 = DZIN2.getInt(APP_PREFERENCES_DZIN2, 0);
-            if(flag_dzin2==1){ toogleButton.setChecked(true);
+
+        /*
+        if (DZIN2.contains(APP_PREFERENCES_DZIN2)) {
+            flag_dzin2 = DZIN2.getString(APP_PREFERENCES_DZIN2, "0");
+            boolean mBoolT = true;
+            boolean mBoolF = false;
+            String one="1";
+
+            if (flag_dzin2.equals){ toogleButton.setChecked(mBoolT);
+            } else
+            {
+                toogleButton.setChecked(mBoolF);
             }
         }
 */
         toogleButton.setOnCheckedChangeListener(this);
 
     }
+
+
 
 
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
