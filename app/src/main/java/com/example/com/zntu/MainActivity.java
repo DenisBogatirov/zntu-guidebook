@@ -45,8 +45,6 @@ import java.net.URI;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
-
 /*
 
 Intent myIntent = new Intent(Intent.ACTION_CALL, Uri.parse(“tel:” + Contacts_Phone));
@@ -54,8 +52,6 @@ myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 startActivity(myIntent);
 
  */
-
-
 
 public class MainActivity extends Activity implements View.OnClickListener {
     int mCounter;
@@ -73,7 +69,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public static final String APP_PREFERENCES = "ZNTU_settings";
     SharedPreferences sPref;
     public String APP_PREFERENCES_COUNTER = "news_id";
-    public String APP_PREFERENCES_DZIN = "ZNTU_dzin_dzin"; //с юморком)
+    public String APP_PREFERENCES_DZIN2 = "ZNTU_dzin_dzin"; //с юморком)
+    SharedPreferences DZIN2;
+    String  flag_dzinT;
 
 
     public boolean ItemClick(int id) {
@@ -166,6 +164,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
         btnUnn = (ImageButton) findViewById(R.id.btnUnn);
         btnUnn.setOnClickListener(this);
     }
+
+
+    public void Open_Menu(View v) {
+
+        openOptionsMenu();
+
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -265,13 +271,18 @@ public class MainActivity extends Activity implements View.OnClickListener {
                                     .getSystemService(Context.NOTIFICATION_SERVICE);
                             notificationManager.notify(NOTIFY_ID, notification);
 
-                            MediaPlayer mp = MediaPlayer.create(MainActivity.this, R.raw.zvuk_omg);
-                            mp.start();
-                        }
 
+        DZIN2 = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+         flag_dzinT = DZIN2.getString(APP_PREFERENCES_DZIN2, "0");
+            String one = "1";
+            if (one.equals(flag_dzinT)) {
+                MediaPlayer mp = MediaPlayer.create(MainActivity.this, R.raw.zvuk_omg);
+                mp.start();
+            }
+                        }
                     } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), "Помилка завантаження Новин", Toast.LENGTH_SHORT).show();
-                        Log.e("log_tag", "Error in http connection " + e.toString());
+                    //    Toast.makeText(getApplicationContext(), "Помилка завантаження Новин", Toast.LENGTH_SHORT).show();
+                    //    Log.e("log_tag", "Error in http connection " + e.toString());
                     }
 
 

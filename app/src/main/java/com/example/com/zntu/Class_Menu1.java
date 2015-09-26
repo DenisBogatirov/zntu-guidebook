@@ -16,8 +16,8 @@ import android.widget.ToggleButton;
 public class Class_Menu1 extends Activity implements
         CompoundButton.OnCheckedChangeListener {
 
-    int  flag_dzin2;
-    ToggleButton toogleButton;
+    String  flag_dzinT;
+    ToggleButton toogleButtonB;
 
     public static final String APP_PREFERENCES = "ZNTU_settings";
     public String APP_PREFERENCES_DZIN2 = "ZNTU_dzin_dzin"; //с юморком)
@@ -28,27 +28,24 @@ public class Class_Menu1 extends Activity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_dzin);
 
-        toogleButton = (ToggleButton) findViewById(R.id.toggleButton);
+        toogleButtonB = (ToggleButton) findViewById(R.id.toggleButton);
 
-
-        /*
-        if (DZIN2.contains(APP_PREFERENCES_DZIN2)) {
-            flag_dzin2 = DZIN2.getString(APP_PREFERENCES_DZIN2, "0");
+ /*       if (DZIN2.contains(APP_PREFERENCES_DZIN2)) {
+            flag_dzinT = DZIN2.getString(APP_PREFERENCES_DZIN2, "0");
             boolean mBoolT = true;
             boolean mBoolF = false;
             String one="1";
 
-            if (flag_dzin2.equals){ toogleButton.setChecked(mBoolT);
+            if (one.equals(flag_dzinT)){ toogleButtonB.setChecked(mBoolF);
             } else
             {
-                toogleButton.setChecked(mBoolF);
+                toogleButtonB.setChecked(mBoolT);
             }
         }
 */
-        toogleButton.setOnCheckedChangeListener(this);
+        toogleButtonB.setOnCheckedChangeListener(this);
 
     }
-
 
 
 
@@ -62,7 +59,7 @@ public class Class_Menu1 extends Activity implements
             DZIN2 = getPreferences(MODE_PRIVATE);
            String saved = DZIN2.getString(APP_PREFERENCES_DZIN2, "0");
 
-            Toast.makeText(getApplicationContext(), saved , Toast.LENGTH_SHORT).show();
+           Toast.makeText(getApplicationContext(), "Сповіщення Активовано" , Toast.LENGTH_SHORT).show();
         }
         else {
             DZIN2 = getPreferences(MODE_PRIVATE);
@@ -73,9 +70,7 @@ public class Class_Menu1 extends Activity implements
             DZIN2 = getPreferences(MODE_PRIVATE);
             String saved = DZIN2.getString(APP_PREFERENCES_DZIN2, "0");
 
-            Toast.makeText(getApplicationContext(), saved , Toast.LENGTH_SHORT).show();
+           Toast.makeText(getApplicationContext(), "Сповіщення Вимкнено" , Toast.LENGTH_SHORT).show();
         }
     }
-
-
 }

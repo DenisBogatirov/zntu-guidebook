@@ -2,44 +2,33 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/korpus"
-    android:gravity="top">
+    android:background="@drawable/korpus">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="НАЛАШТУАННЯ"
+        android:text="НАЛАШТУВАННЯ"
         android:id="@+id/textView16"
-        android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:singleLine="true"
+        android:layout_gravity="center_horizontal"
+        android:autoText="false"
         android:textStyle="bold" />
 
-
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Звук повідомлення"
+        android:text="Звукове сповіщення"
         android:id="@+id/textView17"
-        android:autoText="false"
-        android:layout_marginTop="50dp"
-        android:textStyle="bold"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp" />
 
     <ToggleButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New ToggleButton"
         android:id="@+id/toggleButton"
         android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="-35dp"
-        android:textOff="Выкл."
-        android:textOn="Вкл."
-        android:checked="false"
-        android:clickable="true" />
-
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="-40dp" />
 </LinearLayout>

@@ -12,7 +12,7 @@
         android:maxHeight="190dp"
         android:layout_weight="10">
 
-    <ImageButton
+        <ImageButton
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/btnFnd"
@@ -28,7 +28,7 @@
         android:layout_weight="1"
         android:background="@drawable/pusto" />
 
-</LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -120,4 +120,19 @@
             android:gravity="center"
             />
     </LinearLayout>
+
+    <ImageButton
+        android:layout_width="54dp"
+        android:layout_height="40dp"
+        android:id="@+id/imageButton"
+        android:onClick="Open_Menu"
+        android:nestedScrollingEnabled="false"
+        android:background="@drawable/intro"
+        android:baselineAlignBottom="false"
+        android:clickable="false"
+        android:cropToPadding="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:longClickable="false" />
+
 </LinearLayout>
