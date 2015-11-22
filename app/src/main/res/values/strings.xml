@@ -73,6 +73,7 @@
         &lt;b&gt;Тел.&lt;/b&gt; +380617698211&lt;br&gt;
         &lt;/p&gt;
 
+
         &lt;p&gt;&lt;b&gt;Помічник голови профкому студентів ЗНТУ:&lt;/b&gt;&lt;br&gt;
         (Кашуба Юлія)&lt;br&gt;
         &lt;b&gt;Тел.&lt;/b&gt; +380612244235&lt;br&gt;
@@ -82,8 +83,8 @@
         69063, м. Запоріжжя, вул. Жуковського 64, к.368-А &lt;/p&gt;
 
         &lt;p&gt;&lt;b&gt;Начальник Центру сприяння працевлаштуванню студентів та випускників ЗНТУ:&lt;/b&gt;&lt;br&gt;
-        (Ігнашова Анастасія Вікторівна)&lt;br&gt;
-        &lt;b&gt;Тел.&lt;/b&gt; +380617644592&lt;br&gt;
+        (Олефір Світлана)&lt;br&gt;
+        &lt;b&gt;Тел.&lt;/b&gt; +380617644592 каб. 329-А  &lt;br&gt;
         &lt;b&gt;E-mail:&lt;/b&gt; sp.zntu@gmail.com
         &lt;/p&gt;
     </string>
@@ -101,6 +102,12 @@
     &lt;b&gt;Тел.:&lt;/b&gt; +380(61)7698317, +380(61)7644656&lt;br&gt;
     &lt;b&gt;E-mail:&lt;/b&gt; dekanat_tf@zntu.edu.ua
     &lt;/p&gt;
+    &lt;p&gt;&lt;b&gt;Профбюро студентів ТФ&lt;/b&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;b&gt;Голова профбюро:&lt;/b&gt;&lt;br&gt;
+    (Безсмертний Владислав Григорович)&lt;br&gt;
+    &lt;b&gt;Тел.&lt;/b&gt;   +380951345338   &lt;br&gt;
+    &lt;/p&gt;
     </string>
 
      <string name="TelephoneList3">
@@ -110,6 +117,12 @@
 &lt;b&gt;Аудиторія (кабінет):&lt;/b&gt; 380&lt;br&gt;
 &lt;b&gt;Тел.:&lt;/b&gt; +380(61)7698350, +380(61)7644423&lt;br&gt;
 &lt;b&gt;E-mail:&lt;/b&gt; dekanat_mbf@zntu.edu.ua
+&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Профбюро студентів МФ&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Голова профбюро:&lt;/b&gt;&lt;br&gt;
+(Резніченко Вікторія Борисівна)&lt;br&gt;
+&lt;b&gt;Тел.&lt;/b&gt;   +380666147400   &lt;br&gt;
 &lt;/p&gt;
     </string>
 
@@ -122,6 +135,13 @@
 &lt;b&gt;Тел.:&lt;/b&gt; +380(61)7644674, +380(61)7698414&lt;br&gt;
 &lt;b&gt;E-mail:&lt;/b&gt; dekanat_if@zntu.edu.ua
 &lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Профбюро студентів ІФ&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Голова профбюро:&lt;/b&gt;&lt;br&gt;
+(Шаповал Ганна Олександрівна)&lt;br&gt;
+&lt;b&gt;Тел.&lt;/b&gt;   +380997943025   &lt;br&gt;
+&lt;/p&gt;
     </string>
 
 
@@ -132,6 +152,13 @@
 &lt;b&gt;Аудиторія (кабінет):&lt;/b&gt; 266&lt;br&gt;
 &lt;b&gt;Тел.:&lt;/b&gt; +380(61)7644625, +380(61)7698426&lt;br&gt;
 &lt;b&gt;E-mail:&lt;/b&gt; dekanat_etf@zntu.edu.ua
+&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Профбюро студентів ЕТФ&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Голова профбюро:&lt;/b&gt;&lt;br&gt;
+(Жежера Іван Іванович)&lt;br&gt;
+&lt;b&gt;Тел.&lt;/b&gt;   +380991812750   &lt;br&gt;
 &lt;/p&gt;
     </string>
 
@@ -144,6 +171,12 @@
 &lt;b&gt;Тел.:&lt;/b&gt; +380(61)7698306, +380(61)7634258&lt;br&gt;
 &lt;b&gt;E-mail:&lt;/b&gt; dekanat_fret@zntu.edu.ua
 &lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Профбюро студентів ФРЕТ&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Голова профбюро:&lt;/b&gt;&lt;br&gt;
+(Дейнека Ганна Петрівна)&lt;br&gt;
+&lt;b&gt;Тел.&lt;/b&gt;   +380666695902   &lt;br&gt;
+&lt;/p&gt;
     </string>
 
 
@@ -154,6 +187,12 @@
 &lt;b&gt;Аудиторія (кабінет):&lt;/b&gt; 362&lt;br&gt;
 &lt;b&gt;Тел.:&lt;/b&gt; +380(61)7643361&lt;br&gt;
 &lt;b&gt;E-mail:&lt;/b&gt; dekanat_fiot@zntu.edu.ua
+&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Профбюро студентів ФКНТ&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Голова профбюро:&lt;/b&gt;&lt;br&gt;
+(Космина Наталія Сергіївна)&lt;br&gt;
+&lt;b&gt;Тел.&lt;/b&gt;   +380997452292   &lt;br&gt;
 &lt;/p&gt;
     </string>
 
@@ -166,6 +205,12 @@
 &lt;b&gt;Тел.:&lt;/b&gt; +380(61)7643416, +380(61)7698407, +380(61)7698233, методисти – +380(61)7642329&lt;br&gt;
 &lt;b&gt;E-mail:&lt;/b&gt; dekanat_feu@zntu.edu.ua
 &lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Профбюро студентів ФЕУ&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Голова профбюро:&lt;/b&gt;&lt;br&gt;
+(Корогод Михайло Костянтинович)&lt;br&gt;
+&lt;b&gt;Тел.&lt;/b&gt;   +3806666634662   &lt;br&gt;
+&lt;/p&gt;
     </string>
 
 
@@ -176,6 +221,12 @@
 &lt;b&gt;Аудиторія (кабінет):&lt;/b&gt; 273&lt;br&gt;
 &lt;b&gt;Тел.:&lt;/b&gt; +38(061)7698307&lt;br&gt;
 &lt;b&gt;E-mail:&lt;/b&gt; dekanat_gf@zntu.edu.ua
+&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Профбюро студентів ГФ&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Голова профбюро:&lt;/b&gt;&lt;br&gt;
+(Кравченко Євген Васильович)&lt;br&gt;
+&lt;b&gt;Тел.&lt;/b&gt;   +380669605660   &lt;br&gt;
 &lt;/p&gt;
     </string>
 
@@ -188,16 +239,29 @@
 &lt;b&gt;Тел.:&lt;/b&gt; +380(61)7698308&lt;br&gt;
 &lt;b&gt;E-mail:&lt;/b&gt; dekanat_ufks@zntu.edu.ua
 &lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Профбюро студентів УФКС&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Голова профбюро:&lt;/b&gt;&lt;br&gt;
+(Шевченко Ірина Валеріївна)&lt;br&gt;
+&lt;b&gt;Тел.&lt;/b&gt;   +380996653479   &lt;br&gt;
+&lt;/p&gt;
     </string>
 
 
-   <string name="TelephoneList11">
+<string name="TelephoneList11">
 &lt;p&gt;&lt;b&gt;Факультет міжнародного туризму та управління персоналом&lt;/b&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;b&gt;Адреса деканату:&lt;/b&gt;&lt;br&gt; вул. Тургенєва 39, м. Запоріжжя, Україна, 69063&lt;br&gt;
 &lt;b&gt;Аудиторія (кабінет):&lt;/b&gt; 385 (IV корпус)&lt;br&gt;
 &lt;b&gt;Тел.:&lt;/b&gt; +380(61)7698568&lt;br&gt;
 &lt;b&gt;E-mail:&lt;/b&gt; dekanat_mtu@zntu.edu.ua
+&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Профбюро студентів МТУ&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Голова профбюро:&lt;/b&gt;&lt;br&gt;
+(Джеппарова Ліля Джаферовна)&lt;br&gt;
+&lt;b&gt;Тел.&lt;/b&gt;   +380685805973   &lt;br&gt;
 &lt;/p&gt;
     </string>
 
@@ -208,6 +272,12 @@
 &lt;b&gt;Аудиторія (кабінет):&lt;/b&gt; 491 (IV корпус)&lt;br&gt;
 &lt;b&gt;Тел.:&lt;/b&gt; +380(61)7698567&lt;br&gt;
 &lt;b&gt;E-mail:&lt;/b&gt; dekanat_gp@zntu.edu.ua
+&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Профбюро студентів ГП&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Голова профбюро:&lt;/b&gt;&lt;br&gt;
+(Зінченко Ілля)&lt;br&gt;
+&lt;b&gt;Тел.&lt;/b&gt;   +380958991244   &lt;br&gt;
 &lt;/p&gt;
     </string>
 

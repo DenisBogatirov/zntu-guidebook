@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/webViewPKS"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:background="@drawable/korpus" />
 
     <Button
         android:layout_width="match_parent"

@@ -22,10 +22,11 @@
         android:layout_gravity="center_horizontal"
         android:entries="@array/TelephoneList"
         android:visibility="visible"
-        android:textSize="10sp"
+        android:textSize="14sp"
         android:divider="@color/reddivider"
         android:dividerHeight="@dimen/twodp"
-        android:clickable="false" />
+        android:clickable="false"
+        android:fastScrollEnabled="false"
+        android:nestedScrollingEnabled="false" />
 
 </LinearLayout>
-

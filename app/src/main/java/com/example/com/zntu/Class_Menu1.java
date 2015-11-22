@@ -48,7 +48,6 @@ public class Class_Menu1 extends Activity implements
     }
 
 
-
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
             DZIN2 = getPreferences(MODE_PRIVATE);
@@ -59,7 +58,7 @@ public class Class_Menu1 extends Activity implements
             DZIN2 = getPreferences(MODE_PRIVATE);
            String saved = DZIN2.getString(APP_PREFERENCES_DZIN2, "0");
 
-           Toast.makeText(getApplicationContext(), "Сповіщення Активовано" , Toast.LENGTH_SHORT).show();
+           Toast.makeText(getApplicationContext(), "Сповіщення Вимкнено" , Toast.LENGTH_SHORT).show();
         }
         else {
             DZIN2 = getPreferences(MODE_PRIVATE);
@@ -70,7 +69,7 @@ public class Class_Menu1 extends Activity implements
             DZIN2 = getPreferences(MODE_PRIVATE);
             String saved = DZIN2.getString(APP_PREFERENCES_DZIN2, "0");
 
-           Toast.makeText(getApplicationContext(), "Сповіщення Вимкнено" , Toast.LENGTH_SHORT).show();
+           Toast.makeText(getApplicationContext(), "Сповіщення Активовано" , Toast.LENGTH_SHORT).show();
         }
     }
 }

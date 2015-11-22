@@ -9,6 +9,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
@@ -53,7 +54,7 @@ startActivity(myIntent);
 
  */
 
-public class MainActivity extends Activity implements View.OnClickListener {
+public class MainActivity extends ActionBarActivity implements View.OnClickListener {
     int mCounter;
     int flag_dzin;
 
@@ -97,8 +98,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     public boolean onCreateOptionsMenu(Menu menus) {
         getMenuInflater().inflate(R.menu.menu_main, menus);
+        getSupportActionBar().hide();
         return true;
     }
+
+
+
+
 
 
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -167,9 +173,25 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 
     public void Open_Menu(View v) {
-
         openOptionsMenu();
+    }
 
+    @Override
+    public void openOptionsMenu() {
+
+        Configuration config = getResources().getConfiguration();
+
+        if((config.screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK)
+                > Configuration.SCREENLAYOUT_SIZE_LARGE) {
+
+            int originalScreenLayout = config.screenLayout;
+            config.screenLayout = Configuration.SCREENLAYOUT_SIZE_LARGE;
+            super.openOptionsMenu();
+            config.screenLayout = originalScreenLayout;
+
+        } else {
+            super.openOptionsMenu();
+        }
     }
 
 

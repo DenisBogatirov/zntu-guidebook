@@ -47,7 +47,7 @@ public class web_lay  extends Activity{
         WebView mWebView = (WebView) findViewById(R.id.webViewPKS);
         mWebView.getSettings().setJavaScriptEnabled(true);
         this.setTitle("WebView");
-        mWebView.loadUrl("http://1injener.ru/zz.php");
+        mWebView.loadUrl("http://pks-zntu.org.ua/NewsPKS/index.php");
     }
 
 
