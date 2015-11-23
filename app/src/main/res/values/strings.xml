@@ -5,4 +5,8 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="timetable">Розклад</string>
+    <string name="find">Пошук аудиторії</string>
+    <string name="news">Новини профкому</string>
+    <string name="directory">Довідник</string>
 </resources>
