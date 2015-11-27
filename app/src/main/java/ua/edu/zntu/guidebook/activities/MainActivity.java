@@ -10,7 +10,6 @@ import ua.edu.zntu.guidebook.R;
 
 public class MainActivity extends AppCompatActivity{
 
-
     private static final int LAYOUT = R.layout.activity_main;
 
     private Toolbar toolbar;
@@ -24,10 +23,7 @@ public class MainActivity extends AppCompatActivity{
         
         initToolbar();
         initNavigationView();
-
     }
-
-
 
     private void initToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -43,10 +39,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     private void initNavigationView() {
-
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-
-
 
     }
 }
