@@ -35,10 +35,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         manager = getSupportFragmentManager();
 
-        timetableFragment = new TimetableFragment();
+        timetableFragment = new TimetableFragment(this);
 
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, timetableFragment).commit();
+        if (savedInstanceState == null && manager.findFragmentByTag(TimetableFragment.TAG) == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, timetableFragment, TimetableFragment.TAG).commit();
         }
         
         initToolbar();
@@ -78,7 +78,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.nav_timetable:
 
-                transaction.add(R.id.container, timetableFragment);
+                if (manager.findFragmentByTag(TimetableFragment.TAG) == null) {
+
+                    transaction.add(R.id.container, timetableFragment, TimetableFragment.TAG);
+                }
 
                 break;
 
