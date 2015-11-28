@@ -9,5 +9,6 @@ public enum Period {
     FIFTHLESSON,
     SIXTHLESSON,
     SEVENTHLESSON,
-    EIGHTHLESSON
+    EIGHTHLESSON,
+    BREAK
 }
