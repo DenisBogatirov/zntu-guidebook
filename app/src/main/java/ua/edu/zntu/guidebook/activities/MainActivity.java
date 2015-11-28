@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         manager = getSupportFragmentManager();
 
-        timetableFragment = new TimetableFragment(this);
+        timetableFragment = new TimetableFragment();
 
         if (savedInstanceState == null && manager.findFragmentByTag(TimetableFragment.TAG) == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, timetableFragment, TimetableFragment.TAG).commit();
