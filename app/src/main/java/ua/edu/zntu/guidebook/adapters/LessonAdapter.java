@@ -2,7 +2,6 @@ package ua.edu.zntu.guidebook.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,11 +17,18 @@ public class LessonAdapter extends BaseAdapter {
 
     private List<Lesson> lessonList;
     private LayoutInflater inflater;
+    private Lesson currentLesson;
 
     public LessonAdapter(Context context, List<Lesson> lessonList) {
         this.lessonList = lessonList;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
+
+    @Override
+    public boolean areAllItemsEnabled() { return false; }
+
+    @Override
+    public boolean isEnabled(int position) { return false; }
 
     @Override
     public int getCount() {
@@ -54,12 +60,18 @@ public class LessonAdapter extends BaseAdapter {
         lessonNumber_tv.setText(lesson.getNumber());
         lessonTime_tv.setText(lesson.getTime());
 
-        if(lesson.isNow()){
+        if(lesson == currentLesson){
 
             lessonNumber_tv.setBackgroundColor(Color.parseColor("#ffab40"));
             lessonTime_tv.setBackgroundColor(Color.parseColor("#ffab40"));
         }
 
+        else {
+
+            lessonNumber_tv.setBackgroundColor(Color.parseColor("#e2e2e2"));
+            lessonTime_tv.setBackgroundColor(Color.parseColor("#e2e2e2"));
+
+        }
 
         return view;
     }
@@ -68,14 +80,15 @@ public class LessonAdapter extends BaseAdapter {
         return (Lesson) getItem(position);
     }
 
-    public void setNow(int position){
-        for(Lesson tmp: lessonList){
-            if (tmp.isNow()) {
-                tmp.setNow(false);
-            }
-            Log.d("MyTag", tmp.getId()+" "+String.valueOf(tmp.isNow()));
+    public void getCurrentLesson(int time){
+
+            for (Lesson tmp : lessonList) {
+                if (tmp.insideInterval(time)) {
+                    currentLesson = tmp;
+                    break;
+                }
+                else currentLesson = lessonList.get(8);
         }
-        lessonList.get(position).setNow(true);
         this.notifyDataSetChanged();
     }
 }
