@@ -27,11 +27,9 @@ public class TimetableFragment extends Fragment{
         view = inflater.inflate(LAYOUT, container, false);
         context = getContext();
 
-        asyncTask = new TimetableAsyncTask(view, context);
-        asyncTask.execute();
+
+        asyncTask = TimetableAsyncTask.getInstance(view, context);
 
         return view;
     }
-
-
 }
