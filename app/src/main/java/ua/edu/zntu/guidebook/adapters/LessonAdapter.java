@@ -2,6 +2,7 @@ package ua.edu.zntu.guidebook.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +19,11 @@ public class LessonAdapter extends BaseAdapter {
     private List<Lesson> lessonList;
     private LayoutInflater inflater;
     private Lesson currentLesson;
+    private Context context;
 
     public LessonAdapter(Context context, List<Lesson> lessonList) {
         this.lessonList = lessonList;
+        this.context = context;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -61,15 +64,14 @@ public class LessonAdapter extends BaseAdapter {
         lessonTime_tv.setText(lesson.getTime());
 
         if(lesson == currentLesson){
-
-            lessonNumber_tv.setBackgroundColor(Color.parseColor("#ffab40"));
-            lessonTime_tv.setBackgroundColor(Color.parseColor("#ffab40"));
+            lessonNumber_tv.setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent));
+            lessonTime_tv.setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent));
         }
 
         else {
 
-            lessonNumber_tv.setBackgroundColor(Color.parseColor("#e2e2e2"));
-            lessonTime_tv.setBackgroundColor(Color.parseColor("#e2e2e2"));
+            lessonNumber_tv.setBackgroundColor(ContextCompat.getColor(context, R.color.mainBackground));
+            lessonTime_tv.setBackgroundColor(ContextCompat.getColor(context, R.color.mainBackground));
 
         }
 
