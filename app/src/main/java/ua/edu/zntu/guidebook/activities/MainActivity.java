@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import ua.edu.zntu.guidebook.R;
+import ua.edu.zntu.guidebook.async.TimetableAsyncTask;
 import ua.edu.zntu.guidebook.fragments.TimetableFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -100,7 +101,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         transaction.commit();
 
+        TimetableAsyncTask.cancel();
+
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        TimetableAsyncTask.cancel();
     }
 }
