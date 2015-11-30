@@ -19,13 +19,30 @@ import ua.edu.zntu.guidebook.pojo.Lesson;
 
 public class TimetableAsyncTask extends AsyncTask<Void, Integer, Void> {
 
-    private int currentPeriod ;
+    private static TimetableAsyncTask instance;
 
-    private View fragmentView;
-    private Context context;
+    public static TimetableAsyncTask getInstance(View fragmentView, Context context) {
 
-    private ListView lessonListView;
-    private LessonAdapter lessonAdapter;
+        setFragmentView(fragmentView);
+        setContext(context);
+        lessonAdapter = new LessonAdapter(context, initData());
+        lessonListView = (ListView) fragmentView.findViewById(R.id.timetable_listView);
+        lessonListView.setAdapter(lessonAdapter);
+
+        if (instance == null || instance.isCancelled()) {
+
+            instance = new TimetableAsyncTask();
+            instance.execute();
+        }
+
+        return instance;
+    }
+
+    private static View fragmentView;
+    private static Context context;
+
+    private static ListView lessonListView;
+    private static LessonAdapter lessonAdapter;
 
     private Date date ;
     private Calendar calendar;
@@ -34,54 +51,38 @@ public class TimetableAsyncTask extends AsyncTask<Void, Integer, Void> {
 
     private int time ;
 
-    public TimetableAsyncTask(View fragmentView, Context context) {
-        this.fragmentView = fragmentView;
-        this.context = context;
-        lessonAdapter = new LessonAdapter(context, initData());
-    }
-
-
-    private List<Lesson> initData(){
+    private static List<Lesson> initData(){
         List<Lesson> list = new ArrayList<>();
 
-        list.add(new Lesson(1, "1 пара", "08:30 - 09:50"));
-        list.add(new Lesson(2, "2 пара", "10:05 - 11:25"));
-        list.add(new Lesson(3, "3 пара", "11:55 - 13:15"));
-        list.add(new Lesson(4, "4 пара", "13:25 - 14:45"));
-        list.add(new Lesson(5, "5 пара", "14:55 - 16:15"));
-        list.add(new Lesson(6, "6 пара", "16:45 - 18:05"));
-        list.add(new Lesson(7, "7 пара", "18:15 - 19:35"));
-        list.add(new Lesson(8, "8 пара", "19:45 - 21:05"));
-        list.add(new Lesson(9, " ", "Перерва"));
+        list.add(new Lesson(1, 510, 590, "1 пара", "08:30 - 09:50"));
+        list.add(new Lesson(2, 605, 685, "2 пара", "10:05 - 11:25"));
+        list.add(new Lesson(3, 715, 795, "3 пара", "11:55 - 13:15"));
+        list.add(new Lesson(4, 805, 885, "4 пара", "13:25 - 14:45"));
+        list.add(new Lesson(5, 895, 975, "5 пара", "14:55 - 16:15"));
+        list.add(new Lesson(6, 1005, 1085, "6 пара", "16:45 - 18:05"));
+        list.add(new Lesson(7, 1095, 1175, "7 пара", "18:15 - 19:35"));
+        list.add(new Lesson(8, 1185, 1265, "8 пара", "19:45 - 21:05"));
+        list.add(new Lesson(9, 0, 0, " ", "Перерва"));
 
         return list;
     }
 
     @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-        lessonListView = (ListView) fragmentView.findViewById(R.id.timetable_listView);
-        lessonListView.setAdapter(lessonAdapter);
-    }
-
-    @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
-    }
-
-    @Override
     protected void onProgressUpdate(Integer... values) {
         super.onProgressUpdate(values);
-        lessonAdapter.setNow(values[0]);
+        lessonAdapter.getCurrentLesson(values[0]);
 
     }
 
     @Override
     protected Void doInBackground(Void... params) {
 
+        while (time<1440 ){
 
 
-        while (time<1440){
+            if (isCancelled()){
+                return null;
+            }
 
             date = new Date();// given date
             calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
@@ -90,49 +91,28 @@ public class TimetableAsyncTask extends AsyncTask<Void, Integer, Void> {
             min = calendar.get(Calendar.MINUTE); // gets min
             time = Integer.parseInt(String.valueOf(hours * 60 + min));
 
-
-            if( time>510 && time<590 ) {
-                currentPeriod = 0;
-            }else
-
-            if( time>605 && time<685 ){
-                currentPeriod = 1;
-            }else
-
-            if( time>715 && time<795 ){
-                currentPeriod = 2;
-            }else
-
-            if( time>805 && time<885 ){
-                currentPeriod = 3;
-            }else
-
-            if( time>895 && time<975 ){
-                currentPeriod = 4;
-            }else
-
-            if( time>1005 && time<1085 ){
-                currentPeriod = 5;
-            }else
-
-            if( time>=1095 && time<=1175 ){
-                currentPeriod = 6;
-            } else
-
-            if( time>=1185 && time<=1265 ){
-                currentPeriod = 7;
-            } else currentPeriod = 8;
-
-            publishProgress(currentPeriod);
+            publishProgress(time);
 
 
                 try {
-                    TimeUnit.SECONDS.sleep(5);
+                    TimeUnit.SECONDS.sleep(1);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
 
             }
         return null;
+    }
+
+    public static void setFragmentView(View fragmentView) {
+        TimetableAsyncTask.fragmentView = fragmentView;
+    }
+
+    public static void setContext(Context context) {
+        TimetableAsyncTask.context = context;
+    }
+
+    public static void cancel(){
+        instance.cancel(false);
     }
 }
