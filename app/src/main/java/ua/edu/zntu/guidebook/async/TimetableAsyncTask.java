@@ -2,9 +2,13 @@ package ua.edu.zntu.guidebook.async;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.design.widget.Snackbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -21,7 +25,7 @@ public class TimetableAsyncTask extends AsyncTask<Void, Integer, Void> {
 
     private static TimetableAsyncTask instance;
 
-    public static TimetableAsyncTask getInstance(View fragmentView, Context context) {
+    public static TimetableAsyncTask getInstance(final View fragmentView, Context context) {
 
         setFragmentView(fragmentView);
         setContext(context);
@@ -29,11 +33,20 @@ public class TimetableAsyncTask extends AsyncTask<Void, Integer, Void> {
         lessonListView = (ListView) fragmentView.findViewById(R.id.timetable_listView);
         lessonListView.setAdapter(lessonAdapter);
 
+
+
         if (instance == null || instance.isCancelled()) {
 
             instance = new TimetableAsyncTask();
             instance.execute();
         }
+
+        lessonListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Snackbar.make(fragmentView, message, Snackbar.LENGTH_SHORT).show();
+            }
+        });
 
         return instance;
     }
@@ -50,6 +63,12 @@ public class TimetableAsyncTask extends AsyncTask<Void, Integer, Void> {
     private int min ;
 
     private int time ;
+    private static int leftTime ;
+    private static String message;
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+    private Date leftDate = new Date();
+
+
 
     private static List<Lesson> initData(){
         List<Lesson> list = new ArrayList<>();
@@ -67,10 +86,27 @@ public class TimetableAsyncTask extends AsyncTask<Void, Integer, Void> {
         return list;
     }
 
+
+
     @Override
     protected void onProgressUpdate(Integer... values) {
         super.onProgressUpdate(values);
-        lessonAdapter.getCurrentLesson(values[0]);
+        lessonAdapter.setCurrentLesson(values[0]);
+
+
+            if (lessonAdapter.getCurrentLesson().getId() == 9){
+                if(values[0] > 1265 )
+                    leftTime = 1440 - values[0] + lessonAdapter.getNextLesson(values[0]);
+                else leftTime = lessonAdapter.getNextLesson(values[0]) - values[0];
+                leftDate.setTime(leftTime*60000);
+                message = "До кінця перерви залишилося: " + dateFormat.format(leftDate);
+            }
+            else{
+                leftTime = lessonAdapter.getCurrentLesson().getEndInterval() - values[0];
+                leftDate.setTime(leftTime*60000);
+                message = "До кінця заняття залишилося: " + dateFormat.format(leftDate) ;
+            }
+
 
     }
 
@@ -104,9 +140,7 @@ public class TimetableAsyncTask extends AsyncTask<Void, Integer, Void> {
         return null;
     }
 
-    public static void setFragmentView(View fragmentView) {
-        TimetableAsyncTask.fragmentView = fragmentView;
-    }
+    public static void setFragmentView(View fragmentView) { TimetableAsyncTask.fragmentView = fragmentView; }
 
     public static void setContext(Context context) {
         TimetableAsyncTask.context = context;

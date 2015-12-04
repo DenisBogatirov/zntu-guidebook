@@ -1,8 +1,8 @@
 package ua.edu.zntu.guidebook.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,12 +26,6 @@ public class LessonAdapter extends BaseAdapter {
         this.context = context;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
-
-    @Override
-    public boolean areAllItemsEnabled() { return false; }
-
-    @Override
-    public boolean isEnabled(int position) { return false; }
 
     @Override
     public int getCount() {
@@ -82,7 +76,7 @@ public class LessonAdapter extends BaseAdapter {
         return (Lesson) getItem(position);
     }
 
-    public void getCurrentLesson(int time){
+    public void setCurrentLesson(int time){
 
             for (Lesson tmp : lessonList) {
                 if (tmp.insideInterval(time)) {
@@ -91,6 +85,19 @@ public class LessonAdapter extends BaseAdapter {
                 }
                 else currentLesson = lessonList.get(8);
         }
+
         this.notifyDataSetChanged();
     }
+
+    public Lesson getCurrentLesson() { return currentLesson; }
+
+    public int getNextLesson(int time) {
+        int nextLesson = 1440;
+        for (Lesson tmp : lessonList)
+            if (tmp.getStartInterval() > time && tmp.getStartInterval() < nextLesson)
+                nextLesson = tmp.getStartInterval();
+            else if (time > 1265) nextLesson = lessonList.get(0).getStartInterval();
+        return nextLesson;
+    }
+
 }

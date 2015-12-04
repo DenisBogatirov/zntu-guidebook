@@ -8,7 +8,7 @@ public class Lesson {
     private int endInterval;
     private String number;
     private String time;
-    private boolean now = false;
+
 
     public Lesson(long id, int startInterval, int endInterval, String number, String time) {
         this.id = id;
@@ -30,15 +30,15 @@ public class Lesson {
         return time;
     }
 
-    public boolean isNow() {
-        return now;
-    }
-
-    public void setNow(boolean now) {
-        this.now = now;
-    }
-
     public boolean insideInterval(int time){
-        return time > startInterval && time < endInterval;
+        return time >= startInterval && time <= endInterval;
+    }
+
+    public int getStartInterval() {
+        return startInterval;
+    }
+
+    public int getEndInterval() {
+        return endInterval;
     }
 }
