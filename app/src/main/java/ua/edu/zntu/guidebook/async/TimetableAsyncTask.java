@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.text.ParseException;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -63,10 +63,11 @@ public class TimetableAsyncTask extends AsyncTask<Void, Integer, Void> {
     private int min ;
 
     private int time ;
-    private static int leftTime ;
+    private static String leftTime ;
     private static String message;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
     private Date leftDate = new Date();
+
 
 
 
@@ -92,19 +93,56 @@ public class TimetableAsyncTask extends AsyncTask<Void, Integer, Void> {
     protected void onProgressUpdate(Integer... values) {
         super.onProgressUpdate(values);
         lessonAdapter.setCurrentLesson(values[0]);
+        int tmp_hours;
+        int tmp_minutes;
 
 
             if (lessonAdapter.getCurrentLesson().getId() == 9){
-                if(values[0] > 1265 )
-                    leftTime = 1440 - values[0] + lessonAdapter.getNextLesson(values[0]);
-                else leftTime = lessonAdapter.getNextLesson(values[0]) - values[0];
-                leftDate.setTime(leftTime*60000);
-                message = "До кінця перерви залишилося: " + dateFormat.format(leftDate);
+                if(values[0] > 1265 ){
+
+                    tmp_hours = 1440 - values[0] + lessonAdapter.getNextLesson(values[0])/60;
+                    tmp_minutes = 1440 - values[0] + lessonAdapter.getNextLesson(values[0])%60;
+                    if (tmp_hours < 10)
+                        leftTime = "0"+String.valueOf(tmp_hours);
+                    else leftTime = String.valueOf(tmp_hours);
+
+                    if (tmp_minutes < 10)
+                        leftTime += ":0"+String.valueOf(tmp_minutes);
+                    else leftTime += ":"+String.valueOf(tmp_minutes);
+
+                }
+                else {
+
+                    tmp_hours = (lessonAdapter.getNextLesson(values[0]) - values[0])/60;
+                    tmp_minutes = (lessonAdapter.getNextLesson(values[0]) - values[0])%60;
+
+                    if (tmp_hours < 10)
+                        leftTime = "0"+String.valueOf(tmp_hours);
+                    else leftTime = String.valueOf(tmp_hours);
+
+                    if (tmp_minutes < 10)
+                        leftTime += ":0"+String.valueOf(tmp_minutes);
+                    else leftTime += ":"+String.valueOf(tmp_minutes);
+
+
+                }
+
+                message = "До кінця відпочинку залишилося: " + leftTime;
+                //message = String.valueOf(values[0])+" "+String.valueOf(leftTime)+" "+String.valueOf(lessonAdapter.getNextLesson(values[0]));
             }
             else{
-                leftTime = lessonAdapter.getCurrentLesson().getEndInterval() - values[0];
-                leftDate.setTime(leftTime*60000);
-                message = "До кінця заняття залишилося: " + dateFormat.format(leftDate) ;
+                tmp_hours = (lessonAdapter.getCurrentLesson().getEndInterval() - values[0])/60;
+                tmp_minutes = (lessonAdapter.getCurrentLesson().getEndInterval() - values[0])%60;
+
+                if (tmp_hours < 10)
+                    leftTime = "0"+String.valueOf(tmp_hours);
+                else leftTime = String.valueOf(tmp_hours);
+
+                if (tmp_minutes < 10)
+                    leftTime += ":0"+String.valueOf(tmp_minutes);
+                else leftTime += ":"+String.valueOf(tmp_minutes);
+
+                message = "До кінця заняття залишилося: " + leftTime ;
             }
 
 
