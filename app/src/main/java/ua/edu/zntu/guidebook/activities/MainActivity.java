@@ -12,6 +12,7 @@ import android.view.MenuItem;
 
 import ua.edu.zntu.guidebook.R;
 import ua.edu.zntu.guidebook.async.TimetableAsyncTask;
+import ua.edu.zntu.guidebook.fragments.NewsFragment;
 import ua.edu.zntu.guidebook.fragments.TimetableFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -21,7 +22,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
+
     private TimetableFragment timetableFragment;
+    private NewsFragment newsFragment;
 
     private FragmentManager manager;
     private FragmentTransaction transaction;
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         manager = getSupportFragmentManager();
 
         timetableFragment = new TimetableFragment();
+        newsFragment = new NewsFragment();
 
         if (savedInstanceState == null && manager.findFragmentByTag(TimetableFragment.TAG) == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, timetableFragment, TimetableFragment.TAG).commit();
@@ -79,10 +83,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.nav_timetable:
 
-                if (manager.findFragmentByTag(TimetableFragment.TAG) == null) {
-
+                if (manager.findFragmentByTag(NewsFragment.TAG) != null){
+                    transaction.replace(R.id.container, timetableFragment, TimetableFragment.TAG);
+                }
+                else if (manager.findFragmentByTag(TimetableFragment.TAG) == null) {
                     transaction.add(R.id.container, timetableFragment, TimetableFragment.TAG);
                 }
+
+
+
 
                 break;
 
@@ -91,6 +100,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_news:
+
+                if (manager.findFragmentByTag(TimetableFragment.TAG) != null){
+                    transaction.replace(R.id.container, newsFragment, NewsFragment.TAG);
+                }
+                else if (manager.findFragmentByTag(TimetableFragment.TAG) == null) {
+                    transaction.add(R.id.container, newsFragment, NewsFragment.TAG);
+                }
+
+
 
                 break;
 
