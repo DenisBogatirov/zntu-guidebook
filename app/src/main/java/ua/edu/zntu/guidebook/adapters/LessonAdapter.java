@@ -58,8 +58,8 @@ public class LessonAdapter extends BaseAdapter {
         lessonTime_tv.setText(lesson.getTime());
 
         if(lesson == currentLesson){
-            lessonNumber_tv.setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent));
-            lessonTime_tv.setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent));
+            lessonNumber_tv.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimaryDark));
+            lessonTime_tv.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimaryDark));
         }
 
         else {
