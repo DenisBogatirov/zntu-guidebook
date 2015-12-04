@@ -7,9 +7,9 @@
     android:background="@drawable/nav_header_background">
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="fill_parent"
         android:id="@+id/pksImage"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/nav_pkf" />
+        android:background="@drawable/nav_pks" />
 </LinearLayout>
