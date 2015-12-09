@@ -37,7 +37,7 @@ public class NewsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 newsWebView.reload();
-//                fabRefresh.startAnimation(AnimationUtils.loadAnimation(getContext() ,R.anim.fab_rotate));
+                fabRefresh.startAnimation(AnimationUtils.loadAnimation(getContext() ,R.anim.fab_rotate));
             }
         });
 
