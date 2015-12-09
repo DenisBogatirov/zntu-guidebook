@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (manager.findFragmentByTag(TimetableFragment.TAG) != null){
                     transaction.replace(R.id.container, newsFragment, NewsFragment.TAG);
                 }
-                else if (manager.findFragmentByTag(TimetableFragment.TAG) == null) {
+                else if (manager.findFragmentByTag(NewsFragment.TAG) == null) {
                     transaction.add(R.id.container, newsFragment, NewsFragment.TAG);
                 }
 
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         transaction.commit();
 
-        TimetableAsyncTask.cancel();
+        if  (id != R.id.nav_timetable) TimetableAsyncTask.cancel();
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
