@@ -100,8 +100,8 @@ public class TimetableAsyncTask extends AsyncTask<Void, Integer, Void> {
             if (lessonAdapter.getCurrentLesson().getId() == 9){
                 if(values[0] > 1265 ){
 
-                    tmp_hours = 1440 - values[0] + lessonAdapter.getNextLesson(values[0])/60;
-                    tmp_minutes = 1440 - values[0] + lessonAdapter.getNextLesson(values[0])%60;
+                    tmp_hours = (1440 - values[0] + lessonAdapter.getNextLesson(values[0]))/60;
+                    tmp_minutes = (1440 - values[0] + lessonAdapter.getNextLesson(values[0]))%60;
                     if (tmp_hours < 10)
                         leftTime = "0"+String.valueOf(tmp_hours);
                     else leftTime = String.valueOf(tmp_hours);
