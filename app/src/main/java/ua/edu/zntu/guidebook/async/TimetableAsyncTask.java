@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -65,10 +63,6 @@ public class TimetableAsyncTask extends AsyncTask<Void, Integer, Void> {
     private int time ;
     private static String leftTime ;
     private static String message;
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
-    private Date leftDate = new Date();
-
-
 
 
     private static List<Lesson> initData(){
@@ -128,7 +122,6 @@ public class TimetableAsyncTask extends AsyncTask<Void, Integer, Void> {
                 }
 
                 message = "До кінця відпочинку залишилося: " + leftTime;
-                //message = String.valueOf(values[0])+" "+String.valueOf(leftTime)+" "+String.valueOf(lessonAdapter.getNextLesson(values[0]));
             }
             else{
                 tmp_hours = (lessonAdapter.getCurrentLesson().getEndInterval() - values[0])/60;
