@@ -3,9 +3,12 @@ package ua.edu.zntu.guidebook.fragments;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.view.animation.OvershootInterpolator;
 import android.webkit.WebView;
 
 import ua.edu.zntu.guidebook.R;
@@ -34,6 +37,7 @@ public class NewsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 newsWebView.reload();
+//                fabRefresh.startAnimation(AnimationUtils.loadAnimation(getContext() ,R.anim.fab_rotate));
             }
         });
 
