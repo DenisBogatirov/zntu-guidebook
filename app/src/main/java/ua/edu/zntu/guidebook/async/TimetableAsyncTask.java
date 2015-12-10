@@ -178,6 +178,7 @@ public class TimetableAsyncTask extends AsyncTask<Void, Integer, Void> {
     }
 
     public static void cancel(){
-        instance.cancel(false);
+
+        if(instance != null)instance.cancel(false);
     }
 }
