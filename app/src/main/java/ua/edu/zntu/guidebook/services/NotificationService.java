@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 
@@ -19,6 +20,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.concurrent.TimeUnit;
 
 import ua.edu.zntu.guidebook.R;
 import ua.edu.zntu.guidebook.activities.MainActivity;
@@ -30,11 +33,20 @@ public class NotificationService extends Service {
     public final String APP_PREFERENCES = "ZNTU_settings";
     public final String APP_PREFERENCES_COUNTER = "news_id";
 
+    private HttpClient httpClient;
+    private HttpGet request;
+    private HttpResponse response;
+    private BufferedReader in = null;
+    private URI website;
+
     private NotificationManager nm;
 
     private String line;
     private String saved;
     private SharedPreferences sharedPreferences;
+
+
+    private Thread aThread = null;
 
     public NotificationService() {
     }
@@ -44,7 +56,18 @@ public class NotificationService extends Service {
 
         nm = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
 
+        httpClient = new DefaultHttpClient();
+        request = new HttpGet();
+
+        try {
+            website = new URI("http://1injener.ru/id_news");
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+
         checkNews();
+
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -54,42 +77,55 @@ public class NotificationService extends Service {
     }
 
     private void checkNews() {
-        new Thread(new Runnable() {
+       aThread = new Thread(new Runnable() {
             @Override
             public void run() {
 
-                try{
+                while (true) {
 
-                    BufferedReader in = null;
-                    HttpClient httpclient = new DefaultHttpClient();
-                    HttpGet request = new HttpGet();
+                    if (isOnline()) {
 
-                    URI website = new URI("http://1injener.ru/id_news");
-                    request.setURI(website);
-                    HttpResponse response = httpclient.execute(request);
-                    in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-                    line = in.readLine();
+                        try {
+
+                            in = null;
+
+                            request.setURI(website);
+                            response = httpClient.execute(request);
+                            in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+                            line = in.readLine();
+
+                            sharedPreferences = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+                            saved = sharedPreferences.getString(APP_PREFERENCES_COUNTER, "0");
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            line = saved;
 
 
-                    sharedPreferences = getSharedPreferences(APP_PREFERENCES,Context.MODE_PRIVATE);
-                    saved = sharedPreferences.getString(APP_PREFERENCES_COUNTER, "0");
+                        }
 
-
-                    if (!saved.equals(line)){
-                        showNotification();
-                        SharedPreferences.Editor ed = sharedPreferences.edit();
-                        ed.putString(APP_PREFERENCES_COUNTER, line);
-                        ed.apply();
+                        if (!saved.equals(line)) {
+                            showNotification();
+                            SharedPreferences.Editor ed = sharedPreferences.edit();
+                            ed.putString(APP_PREFERENCES_COUNTER, line);
+                            ed.apply();
+                        }
                     }
-                }
-                catch (Exception e){
-                    e.printStackTrace();
-                }
 
-                stopSelf();
+                    try {
+                        TimeUnit.SECONDS.sleep(30);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+
+
+                }
             }
 
-        }).start();
+        });
+
+        aThread.start();
     }
 
     public void showNotification(){
@@ -101,16 +137,25 @@ public class NotificationService extends Service {
 
         builder
                 .setContentIntent(pendingIntent)
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.mipmap.ic_stat_notification)
                 .setLargeIcon(BitmapFactory.decodeResource(getApplicationContext().getResources(), R.mipmap.ic_launcher))
-                .setTicker("Got new News")
+                .setTicker(getString(R.string.notification_ticker))
                 .setWhen(System.currentTimeMillis())
                 .setAutoCancel(true)
-                .setContentTitle("Some new f**** news")
-                .setContentText("Check it");
+                .setContentTitle(getString(R.string.notification_title))
+                .setContentText(getString(R.string.notification_text));
 
         Notification notification = builder.build();
+        notification.defaults = Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE;
 
         nm.notify(NOTIFICATION_ID, notification);
+    }
+
+    public boolean isOnline() {
+
+        String cs = Context.CONNECTIVITY_SERVICE;
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(cs);
+
+        return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnectedOrConnecting();
     }
 }
