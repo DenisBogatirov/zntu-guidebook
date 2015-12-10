@@ -1,5 +1,6 @@
 package ua.edu.zntu.guidebook.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -14,6 +15,7 @@ import ua.edu.zntu.guidebook.R;
 import ua.edu.zntu.guidebook.async.TimetableAsyncTask;
 import ua.edu.zntu.guidebook.fragments.NewsFragment;
 import ua.edu.zntu.guidebook.fragments.TimetableFragment;
+import ua.edu.zntu.guidebook.services.NotificationService;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(LAYOUT);
 
-
+        startService(new Intent(this, NotificationService.class));
 
         manager = getSupportFragmentManager();
 
