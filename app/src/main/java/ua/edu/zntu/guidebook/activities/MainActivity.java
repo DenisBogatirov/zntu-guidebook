@@ -44,12 +44,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         timetableFragment = new TimetableFragment();
         newsFragment = new NewsFragment();
 
-        if (savedInstanceState == null && manager.findFragmentByTag(TimetableFragment.TAG) == null) {
+
+
+        String startFragmentName = this.getIntent().getStringExtra("StartFragment");
+
+        int checkedItem = 0;
+
+         if (startFragmentName == null && savedInstanceState == null && manager.findFragmentByTag(TimetableFragment.TAG) == null) {
+
             getSupportFragmentManager().beginTransaction().replace(R.id.container, timetableFragment, TimetableFragment.TAG).commit();
-        }
+             checkedItem = 0;
+
+        } else  if (startFragmentName.equals("News") && savedInstanceState == null && manager.findFragmentByTag(NewsFragment.TAG) == null) {
+             getSupportFragmentManager().beginTransaction().replace(R.id.container, newsFragment, NewsFragment.TAG).commit();
+             checkedItem = 2;
+         }
         
         initToolbar();
-        initNavigationView();
+        initNavigationView(checkedItem);
     }
 
 
@@ -66,11 +78,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar.inflateMenu(R.menu.menu_toolbar);
     }
 
-    private void initNavigationView() {
+    private void initNavigationView(int checkedItem) {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.navigation);
 
-        navigationView.getMenu().getItem(0).setChecked(true);
+
+
+        navigationView.getMenu().getItem(checkedItem).setChecked(true);
 
         navigationView.setNavigationItemSelectedListener(this);
 
