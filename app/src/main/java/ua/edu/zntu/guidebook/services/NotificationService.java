@@ -11,16 +11,12 @@ import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import ua.edu.zntu.guidebook.R;
@@ -33,11 +29,9 @@ public class NotificationService extends Service {
     public final String APP_PREFERENCES = "ZNTU_settings";
     public final String APP_PREFERENCES_COUNTER = "news_id";
 
-    private HttpClient httpClient;
-    private HttpGet request;
-    private HttpResponse response;
+    private HttpURLConnection connection;
     private BufferedReader in = null;
-    private URI website;
+    private URL website;
 
     private NotificationManager nm;
 
@@ -56,12 +50,9 @@ public class NotificationService extends Service {
 
         nm = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
 
-        httpClient = new DefaultHttpClient();
-        request = new HttpGet();
-
         try {
-            website = new URI("http://1injener.ru/id_news");
-        } catch (URISyntaxException e) {
+            website = new URL("http://1injener.ru/id_news");
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -89,19 +80,24 @@ public class NotificationService extends Service {
 
                             in = null;
 
-                            request.setURI(website);
-                            response = httpClient.execute(request);
-                            in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-                            line = in.readLine();
+                            connection = (HttpURLConnection) website.openConnection();
+                            connection.setRequestMethod("GET");
+                            connection.connect();
 
                             sharedPreferences = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
                             saved = sharedPreferences.getString(APP_PREFERENCES_COUNTER, "0");
 
+                            in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                            line = in.readLine();
+
                         } catch (Exception e) {
-                            e.printStackTrace();
                             line = saved;
 
+                            Log.d("MyTag", "error: " + e.getMessage());
 
+                            e.printStackTrace();
+                        } finally {
+                            connection.disconnect();
                         }
 
                         if (!saved.equals(line)) {
@@ -113,13 +109,10 @@ public class NotificationService extends Service {
                     }
 
                     try {
-                        TimeUnit.SECONDS.sleep(30);
+                        TimeUnit.SECONDS.sleep(10);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-
-
-
                 }
             }
 
@@ -132,6 +125,7 @@ public class NotificationService extends Service {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext());
 
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.putExtra("StartFragment","News");
 
         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
