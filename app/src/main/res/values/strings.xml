@@ -9,4 +9,7 @@
     <string name="menu_item_find">Пошук аудиторії</string>
     <string name="menu_item_news">Новини профкому</string>
     <string name="menu_item_directory">Довідник</string>
+    <string name="notification_text">Прочитайте їх</string>
+    <string name="notification_title">Ми зібрали свіжі новини</string>
+    <string name="notification_ticker">Нові новини</string>
 </resources>
