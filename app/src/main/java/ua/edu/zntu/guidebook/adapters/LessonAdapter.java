@@ -21,6 +21,10 @@ public class LessonAdapter extends BaseAdapter {
     private Lesson currentLesson;
     private Context context;
 
+    private TextView lessonNumber_tv;
+    private TextView lessonTime_tv;
+    private Lesson lesson;
+
     public LessonAdapter(Context context, List<Lesson> lessonList) {
         this.lessonList = lessonList;
         this.context = context;
@@ -44,15 +48,15 @@ public class LessonAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = convertView;
-        if(view == null){
-            view = inflater.inflate(R.layout.listview_lesson_layout, parent, false);
+
+        if(convertView == null){
+            convertView = inflater.inflate(R.layout.listview_lesson_layout, parent, false);
         }
 
-        Lesson lesson = getLesson(position);
+        lesson = getLesson(position);
 
-        TextView lessonNumber_tv = (TextView) view.findViewById(R.id.lessonNumber_tv);
-        TextView lessonTime_tv = (TextView) view.findViewById(R.id.lessonTime_tv);
+        lessonNumber_tv = (TextView) convertView.findViewById(R.id.lessonNumber_tv);
+        lessonTime_tv = (TextView) convertView.findViewById(R.id.lessonTime_tv);
 
         lessonNumber_tv.setText(lesson.getNumber());
         lessonTime_tv.setText(lesson.getTime());
@@ -69,7 +73,7 @@ public class LessonAdapter extends BaseAdapter {
 
         }
 
-        return view;
+        return convertView;
     }
 
     private Lesson getLesson(int position){
