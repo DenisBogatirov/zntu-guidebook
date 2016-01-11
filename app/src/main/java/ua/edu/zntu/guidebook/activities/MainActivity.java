@@ -1,6 +1,6 @@
 package ua.edu.zntu.guidebook.activities;
 
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -15,7 +15,6 @@ import ua.edu.zntu.guidebook.R;
 import ua.edu.zntu.guidebook.async.TimetableAsyncTask;
 import ua.edu.zntu.guidebook.fragments.NewsFragment;
 import ua.edu.zntu.guidebook.fragments.TimetableFragment;
-import ua.edu.zntu.guidebook.services.NotificationService;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -37,8 +36,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(LAYOUT);
 
-        startService(new Intent(this, NotificationService.class));
-
         manager = getSupportFragmentManager();
 
         timetableFragment = new TimetableFragment();
@@ -52,13 +49,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
          if (startFragmentName == null && savedInstanceState == null && manager.findFragmentByTag(TimetableFragment.TAG) == null) {
 
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, timetableFragment, TimetableFragment.TAG).commit();
+             getSupportFragmentManager().beginTransaction().replace(R.id.container, timetableFragment, TimetableFragment.TAG).commit();
              checkedItem = 0;
-
-        } else  if (startFragmentName.equals("News") && savedInstanceState == null && manager.findFragmentByTag(NewsFragment.TAG) == null) {
-             getSupportFragmentManager().beginTransaction().replace(R.id.container, newsFragment, NewsFragment.TAG).commit();
-             checkedItem = 2;
          }
+
+//         else  if (startFragmentName.equals("News") && savedInstanceState == null && manager.findFragmentByTag(NewsFragment.TAG) == null) {
+//             getSupportFragmentManager().beginTransaction().replace(R.id.container, newsFragment, NewsFragment.TAG).commit();
+//             checkedItem = 2;
+//         }
         
         initToolbar();
         initNavigationView(checkedItem);
@@ -106,9 +104,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     transaction.add(R.id.container, timetableFragment, TimetableFragment.TAG);
                 }
 
-
-
-
                 break;
 
             case R.id.nav_find:
@@ -123,8 +118,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 else if (manager.findFragmentByTag(NewsFragment.TAG) == null) {
                     transaction.add(R.id.container, newsFragment, NewsFragment.TAG);
                 }
-
-
 
                 break;
 
