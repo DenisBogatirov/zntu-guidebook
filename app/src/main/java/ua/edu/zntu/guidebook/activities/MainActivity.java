@@ -100,8 +100,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.nav_timetable:
 
-
-
                 if (manager.findFragmentByTag(NewsFragment.TAG) != null){
                     transaction.replace(R.id.container, timetableFragment, TimetableFragment.TAG);
                 }
@@ -117,13 +115,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_find:
 
 
-                if (manager.findFragmentByTag(TimetableFragment.TAG) == null) {
+                if (manager.findFragmentByTag(TimetableFragment.TAG) != null) {
                     transaction.replace(R.id.container, roomsFragment, RoomsFragment.TAG);
                 }
-                else if (manager.findFragmentByTag(NewsFragment.TAG) == null) {
+                else if (manager.findFragmentByTag(NewsFragment.TAG) != null) {
                     transaction.replace(R.id.container, roomsFragment, RoomsFragment.TAG);
                 }
-                else if (manager.findFragmentByTag(RoomsFragment.TAG) != null){
+                else if (manager.findFragmentByTag(RoomsFragment.TAG) == null){
                     transaction.add(R.id.container, roomsFragment, RoomsFragment.TAG);
                 }
 
@@ -134,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (manager.findFragmentByTag(TimetableFragment.TAG) != null){
                     transaction.replace(R.id.container, newsFragment, NewsFragment.TAG);
                 }
-                else if (manager.findFragmentByTag(RoomsFragment.TAG) == null) {
+                else if (manager.findFragmentByTag(RoomsFragment.TAG) != null) {
                     transaction.replace(R.id.container, newsFragment, NewsFragment.TAG);
                 }
                 else if (manager.findFragmentByTag(NewsFragment.TAG) == null) {
