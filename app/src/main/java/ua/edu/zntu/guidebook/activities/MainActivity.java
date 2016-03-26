@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import ua.edu.zntu.guidebook.R;
 import ua.edu.zntu.guidebook.async.TimetableAsyncTask;
 import ua.edu.zntu.guidebook.fragments.NewsFragment;
+import ua.edu.zntu.guidebook.fragments.RoomsFragment;
 import ua.edu.zntu.guidebook.fragments.TimetableFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private TimetableFragment timetableFragment;
     private NewsFragment newsFragment;
+    private RoomsFragment roomsFragment;
 
     private FragmentManager manager;
     private FragmentTransaction transaction;
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         timetableFragment = new TimetableFragment();
         newsFragment = new NewsFragment();
+        roomsFragment = new RoomsFragment();
 
 
 
@@ -97,7 +100,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.nav_timetable:
 
+
+
                 if (manager.findFragmentByTag(NewsFragment.TAG) != null){
+                    transaction.replace(R.id.container, timetableFragment, TimetableFragment.TAG);
+                }
+                else if (manager.findFragmentByTag(RoomsFragment.TAG) != null){
                     transaction.replace(R.id.container, timetableFragment, TimetableFragment.TAG);
                 }
                 else if (manager.findFragmentByTag(TimetableFragment.TAG) == null) {
@@ -108,6 +116,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.nav_find:
 
+
+                if (manager.findFragmentByTag(TimetableFragment.TAG) == null) {
+                    transaction.replace(R.id.container, roomsFragment, RoomsFragment.TAG);
+                }
+                else if (manager.findFragmentByTag(NewsFragment.TAG) == null) {
+                    transaction.replace(R.id.container, roomsFragment, RoomsFragment.TAG);
+                }
+                else if (manager.findFragmentByTag(RoomsFragment.TAG) != null){
+                    transaction.add(R.id.container, roomsFragment, RoomsFragment.TAG);
+                }
+
                 break;
 
             case R.id.nav_news:
@@ -115,9 +134,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (manager.findFragmentByTag(TimetableFragment.TAG) != null){
                     transaction.replace(R.id.container, newsFragment, NewsFragment.TAG);
                 }
+                else if (manager.findFragmentByTag(RoomsFragment.TAG) == null) {
+                    transaction.replace(R.id.container, newsFragment, NewsFragment.TAG);
+                }
                 else if (manager.findFragmentByTag(NewsFragment.TAG) == null) {
                     transaction.add(R.id.container, newsFragment, NewsFragment.TAG);
                 }
+
 
                 break;
 
