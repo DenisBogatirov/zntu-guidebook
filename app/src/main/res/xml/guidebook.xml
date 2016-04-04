@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <guidebook>
     <section>
-        <title>First Section</title>
+        <title>Профком студентів ЗНТУ</title>
+        <person>
+            <job>Голова профкому студентів ЗНТУ</job>
+            <name>Іванченко Андрій Володимирович</name>
+            <phone>+380612244235</phone>
+            <vk>https://vk.com/club4541168</vk>
+            <additional>вул. Жуковського 64, м. Запоріжжя, Україна, 69063. Каб 368а.</additional>
+        </person>
     </section>
+
     <section>
-        <title>Second Section</title>
+        <title>Транспортний факультет (ТФ)</title>
+        <person>
+            <job>Голова профбюро студентів факультету</job>
+            <name>Безсмертний Владислав</name>
+            <phone>+380951345338</phone>
+            <vk>https://vk.com/tf_zntu</vk>
+            <additional> </additional>
+        </person>
     </section>
 </guidebook>
