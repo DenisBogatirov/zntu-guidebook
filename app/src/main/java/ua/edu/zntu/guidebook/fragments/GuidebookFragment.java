@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -19,6 +20,7 @@ import ua.edu.zntu.guidebook.R;
 import ua.edu.zntu.guidebook.adapters.LessonAdapter;
 import ua.edu.zntu.guidebook.adapters.SectionAdapter;
 import ua.edu.zntu.guidebook.async.TimetableAsyncTask;
+import ua.edu.zntu.guidebook.pojo.Person;
 import ua.edu.zntu.guidebook.pojo.Section;
 
 public class GuidebookFragment extends Fragment{
@@ -27,7 +29,6 @@ public class GuidebookFragment extends Fragment{
     private static final int LAYOUT = R.layout.guidebook_layout;
 
     private View view;
-    private TimetableAsyncTask asyncTask;
     private Context context;
     private LinkedList<Section> sections = new LinkedList<>();
 
@@ -46,8 +47,10 @@ public class GuidebookFragment extends Fragment{
 
 
 
-        Section.Builder builder = new Section.Builder();
-        Section tmp;
+        Section.Builder sectionBuilder = new Section.Builder();
+        Person.Builder personBuilder = new Person.Builder();
+        LinkedList<Person> tmpPersons = new LinkedList<>();
+        Section tmpSection;
         int counter = 0;
 
         try {
@@ -60,7 +63,27 @@ public class GuidebookFragment extends Fragment{
                         if (!xpp.getName().equals("guidebook") && !xpp.getName().equals("section")){
                             if(xpp.getName().equals("title")){
                                 xpp.next();
-                                builder.setTitle(xpp.getText());
+                                sectionBuilder.setTitle(xpp.getText());
+                            }
+                            else if (xpp.getName().equals("job")) {
+                                xpp.next();
+                                personBuilder.setJob(xpp.getText());
+                            }
+                            else if (xpp.getName().equals("name")) {
+                                xpp.next();
+                                personBuilder.setName(xpp.getText());
+                            }
+                            else if (xpp.getName().equals("phone")) {
+                                xpp.next();
+                                personBuilder.setPhone(xpp.getText());
+                            }
+                            else if (xpp.getName().equals("vk")) {
+                                xpp.next();
+                                personBuilder.setVk(xpp.getText());
+                            }
+                            else if (xpp.getName().equals("additional")) {
+                                xpp.next();
+                                personBuilder.setAdditional(xpp.getText());
                             }
                         }
 
@@ -69,10 +92,15 @@ public class GuidebookFragment extends Fragment{
                     case XmlPullParser.END_TAG:
                         if(xpp.getName().equals("section"))
                         {
-                            builder.setId(counter);
-                            tmp = builder.build();
-                            sections.add(tmp);
+                            sectionBuilder.setId(counter)
+                                    .setPersons((LinkedList<Person>) tmpPersons.clone());
+                            sections.add(sectionBuilder.build());
+                            tmpPersons.clear();
                             counter++;
+                            Log.d("MyTAG", sections.getLast().getPersons().toString());
+                        }
+                        else if (xpp.getName().equals("person")) {
+                            tmpPersons.add(personBuilder.build());
                         }
                         break;
                     default:
@@ -92,7 +120,11 @@ public class GuidebookFragment extends Fragment{
         sectionListView = (ListView) view.findViewById(R.id.guidebook_listView);
         sectionListView.setAdapter(sectionAdapter);
 
-        Log.d("MyTAG", String.valueOf(sections.size()));
+        sectionListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("MyTAG", sections.get(position).getPersons().toString());
+            }
+        });
 
         return view;
     }
