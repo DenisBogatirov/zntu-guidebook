@@ -108,13 +108,13 @@ public class RoomsFragment extends Fragment {
                 if(rooms.containsKey(value))
                 {
                     room = rooms.get(value);
-                    tv_title.setText(room.getTitle());
-                    tv_housing.setText(room.getHousing());
-                    tv_floor.setText(room.getFloor());
+                    tv_title.setText("Аудиторія: "+room.getTitle());
+                    tv_housing.setText("Корпус: "+room.getHousing());
+                    tv_floor.setText("Поверх: "+room.getFloor());
                     tv_description.setText(room.getDescription());
                 }
                 else {
-                    tv_title.setText("No such room");
+                    tv_title.setText("Такої аудиторії немає у базі.");
                     tv_housing.setText("");
                     tv_housing.setText("");
                     tv_floor.setText("");
