@@ -13,6 +13,7 @@ import android.view.MenuItem;
 
 import ua.edu.zntu.guidebook.R;
 import ua.edu.zntu.guidebook.async.TimetableAsyncTask;
+import ua.edu.zntu.guidebook.fragments.GuidebookFragment;
 import ua.edu.zntu.guidebook.fragments.NewsFragment;
 import ua.edu.zntu.guidebook.fragments.RoomsFragment;
 import ua.edu.zntu.guidebook.fragments.TimetableFragment;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private TimetableFragment timetableFragment;
     private NewsFragment newsFragment;
     private RoomsFragment roomsFragment;
+    private GuidebookFragment guidebookFragment;
 
     private FragmentManager manager;
     private FragmentTransaction transaction;
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         timetableFragment = new TimetableFragment();
         newsFragment = new NewsFragment();
         roomsFragment = new RoomsFragment();
+        guidebookFragment = new GuidebookFragment();
 
 
 
@@ -106,6 +109,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 else if (manager.findFragmentByTag(RoomsFragment.TAG) != null){
                     transaction.replace(R.id.container, timetableFragment, TimetableFragment.TAG);
                 }
+                else if (manager.findFragmentByTag(GuidebookFragment.TAG) != null){
+                    transaction.replace(R.id.container, timetableFragment, TimetableFragment.TAG);
+                }
                 else if (manager.findFragmentByTag(TimetableFragment.TAG) == null) {
                     transaction.add(R.id.container, timetableFragment, TimetableFragment.TAG);
                 }
@@ -119,6 +125,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     transaction.replace(R.id.container, roomsFragment, RoomsFragment.TAG);
                 }
                 else if (manager.findFragmentByTag(NewsFragment.TAG) != null) {
+                    transaction.replace(R.id.container, roomsFragment, RoomsFragment.TAG);
+                }
+                else if (manager.findFragmentByTag(GuidebookFragment.TAG) != null) {
                     transaction.replace(R.id.container, roomsFragment, RoomsFragment.TAG);
                 }
                 else if (manager.findFragmentByTag(RoomsFragment.TAG) == null){
@@ -135,6 +144,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 else if (manager.findFragmentByTag(RoomsFragment.TAG) != null) {
                     transaction.replace(R.id.container, newsFragment, NewsFragment.TAG);
                 }
+                else if (manager.findFragmentByTag(GuidebookFragment.TAG) != null) {
+                    transaction.replace(R.id.container, newsFragment, NewsFragment.TAG);
+                }
                 else if (manager.findFragmentByTag(NewsFragment.TAG) == null) {
                     transaction.add(R.id.container, newsFragment, NewsFragment.TAG);
                 }
@@ -143,6 +155,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_directory:
+
+                if (manager.findFragmentByTag(TimetableFragment.TAG) != null){
+                    transaction.replace(R.id.container, guidebookFragment, GuidebookFragment.TAG);
+                }
+                else if (manager.findFragmentByTag(RoomsFragment.TAG) != null) {
+                    transaction.replace(R.id.container, guidebookFragment, GuidebookFragment.TAG);
+                }
+                else if (manager.findFragmentByTag(NewsFragment.TAG) != null) {
+                    transaction.replace(R.id.container, guidebookFragment, GuidebookFragment.TAG);
+                }
+                else if (manager.findFragmentByTag(GuidebookFragment.TAG) == null) {
+                    transaction.add(R.id.container, guidebookFragment, GuidebookFragment.TAG);
+                }
 
                 break;
         }
