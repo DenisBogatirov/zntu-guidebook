@@ -1,9 +1,10 @@
 package ua.edu.zntu.guidebook.pojo;
 
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
-public class Section {
+public class Section implements Serializable{
     private long id;
     private String title;
     private LinkedList<Person> persons = new LinkedList<>();

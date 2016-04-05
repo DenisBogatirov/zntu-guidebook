@@ -3,7 +3,8 @@ package ua.edu.zntu.guidebook.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +18,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 import ua.edu.zntu.guidebook.R;
-import ua.edu.zntu.guidebook.adapters.LessonAdapter;
 import ua.edu.zntu.guidebook.adapters.SectionAdapter;
-import ua.edu.zntu.guidebook.async.TimetableAsyncTask;
 import ua.edu.zntu.guidebook.pojo.Person;
 import ua.edu.zntu.guidebook.pojo.Section;
 
@@ -27,6 +26,8 @@ public class GuidebookFragment extends Fragment{
 
     public static final String TAG = "GuideBookFragmentTag";
     private static final int LAYOUT = R.layout.guidebook_layout;
+
+//    private
 
     private View view;
     private Context context;
@@ -97,7 +98,6 @@ public class GuidebookFragment extends Fragment{
                             sections.add(sectionBuilder.build());
                             tmpPersons.clear();
                             counter++;
-                            Log.d("MyTAG", sections.getLast().getPersons().toString());
                         }
                         else if (xpp.getName().equals("person")) {
                             tmpPersons.add(personBuilder.build());
@@ -122,7 +122,25 @@ public class GuidebookFragment extends Fragment{
 
         sectionListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("MyTAG", sections.get(position).getPersons().toString());
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("Section", sections.get(position));
+                SectionInfoFragment sectionInfoFragment = new SectionInfoFragment();
+                sectionInfoFragment.setArguments(bundle);
+
+                final FragmentManager manager = getFragmentManager();
+                final FragmentTransaction transaction = manager.beginTransaction();
+
+
+
+                if (manager.findFragmentByTag(GuidebookFragment.TAG) != null){
+                    transaction.replace(R.id.container, sectionInfoFragment, SectionInfoFragment.TAG);
+                }
+                else if (manager.findFragmentByTag(SectionInfoFragment.TAG) == null) {
+                    transaction.add(R.id.container, sectionInfoFragment, SectionInfoFragment.TAG);
+                }
+
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
 
