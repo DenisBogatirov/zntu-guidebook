@@ -3,6 +3,7 @@ package ua.edu.zntu.guidebook.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -19,7 +20,7 @@ import ua.edu.zntu.guidebook.fragments.RoomsFragment;
 import ua.edu.zntu.guidebook.fragments.SectionInfoFragment;
 import ua.edu.zntu.guidebook.fragments.TimetableFragment;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final int LAYOUT = R.layout.activity_main;
 
@@ -48,23 +49,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         roomsFragment = new RoomsFragment();
         guidebookFragment = new GuidebookFragment();
 
-
-
         String startFragmentName = this.getIntent().getStringExtra("StartFragment");
 
         int checkedItem = 0;
 
-         if (startFragmentName == null && savedInstanceState == null && manager.findFragmentByTag(TimetableFragment.TAG) == null) {
+        if (startFragmentName == null && savedInstanceState == null && manager.findFragmentByTag(TimetableFragment.TAG) == null) {
 
-             getSupportFragmentManager().beginTransaction().replace(R.id.container, timetableFragment, TimetableFragment.TAG).commit();
-             checkedItem = 0;
-         }
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, timetableFragment, TimetableFragment.TAG)
+                    .commit();
+            checkedItem = 0;
+        }
 
-//         else  if (startFragmentName.equals("News") && savedInstanceState == null && manager.findFragmentByTag(NewsFragment.TAG) == null) {
-//             getSupportFragmentManager().beginTransaction().replace(R.id.container, newsFragment, NewsFragment.TAG).commit();
-//             checkedItem = 2;
-//         }
-        
         initToolbar();
         initNavigationView(checkedItem);
     }
@@ -94,95 +90,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         transaction = manager.beginTransaction();
 
-        switch (id){
+        switch (id) {
 
-            case R.id.nav_timetable:
+        case R.id.nav_timetable:
+            changeFragment(timetableFragment, TimetableFragment.TAG);
+            break;
 
-                if (manager.findFragmentByTag(NewsFragment.TAG) != null){
-                    transaction.replace(R.id.container, timetableFragment, TimetableFragment.TAG);
-                }
-                else if (manager.findFragmentByTag(RoomsFragment.TAG) != null){
-                    transaction.replace(R.id.container, timetableFragment, TimetableFragment.TAG);
-                }
-                else if (manager.findFragmentByTag(GuidebookFragment.TAG) != null){
-                    transaction.replace(R.id.container, timetableFragment, TimetableFragment.TAG);
-                }
-                else if (manager.findFragmentByTag(SectionInfoFragment.TAG) != null){
-                    transaction.replace(R.id.container, timetableFragment, TimetableFragment.TAG);
-                }
-                else if (manager.findFragmentByTag(TimetableFragment.TAG) == null) {
-                    transaction.add(R.id.container, timetableFragment, TimetableFragment.TAG);
-                }
+        case R.id.nav_find:
+            changeFragment(roomsFragment, RoomsFragment.TAG);
+            break;
 
-                break;
+        case R.id.nav_news:
+            changeFragment(newsFragment, NewsFragment.TAG);
+            break;
 
-            case R.id.nav_find:
-
-
-                if (manager.findFragmentByTag(TimetableFragment.TAG) != null) {
-                    transaction.replace(R.id.container, roomsFragment, RoomsFragment.TAG);
-                }
-                else if (manager.findFragmentByTag(NewsFragment.TAG) != null) {
-                    transaction.replace(R.id.container, roomsFragment, RoomsFragment.TAG);
-                }
-                else if (manager.findFragmentByTag(GuidebookFragment.TAG) != null) {
-                    transaction.replace(R.id.container, roomsFragment, RoomsFragment.TAG);
-                }
-                else if (manager.findFragmentByTag(SectionInfoFragment.TAG) != null) {
-                    transaction.replace(R.id.container, roomsFragment, RoomsFragment.TAG);
-                }
-                else if (manager.findFragmentByTag(RoomsFragment.TAG) == null){
-                    transaction.add(R.id.container, roomsFragment, RoomsFragment.TAG);
-                }
-
-                break;
-
-            case R.id.nav_news:
-
-                if (manager.findFragmentByTag(TimetableFragment.TAG) != null){
-                    transaction.replace(R.id.container, newsFragment, NewsFragment.TAG);
-                }
-                else if (manager.findFragmentByTag(RoomsFragment.TAG) != null) {
-                    transaction.replace(R.id.container, newsFragment, NewsFragment.TAG);
-                }
-                else if (manager.findFragmentByTag(GuidebookFragment.TAG) != null) {
-                    transaction.replace(R.id.container, newsFragment, NewsFragment.TAG);
-                }
-                else if (manager.findFragmentByTag(SectionInfoFragment.TAG) != null) {
-                    transaction.replace(R.id.container, newsFragment, NewsFragment.TAG);
-                }
-                else if (manager.findFragmentByTag(NewsFragment.TAG) == null) {
-                    transaction.add(R.id.container, newsFragment, NewsFragment.TAG);
-                }
-
-
-                break;
-
-            case R.id.nav_directory:
-
-                if (manager.findFragmentByTag(TimetableFragment.TAG) != null){
-                    transaction.replace(R.id.container, guidebookFragment, GuidebookFragment.TAG);
-                }
-                else if (manager.findFragmentByTag(RoomsFragment.TAG) != null) {
-                    transaction.replace(R.id.container, guidebookFragment, GuidebookFragment.TAG);
-                }
-                else if (manager.findFragmentByTag(NewsFragment.TAG) != null) {
-                    transaction.replace(R.id.container, guidebookFragment, GuidebookFragment.TAG);
-                }
-                else if (manager.findFragmentByTag(SectionInfoFragment.TAG) != null) {
-                    transaction.replace(R.id.container, guidebookFragment, GuidebookFragment.TAG);
-                }
-                else if (manager.findFragmentByTag(GuidebookFragment.TAG) == null) {
-                    transaction.add(R.id.container, guidebookFragment, GuidebookFragment.TAG);
-                }
-
-                break;
+        case R.id.nav_directory:
+            changeFragment(guidebookFragment, GuidebookFragment.TAG);
+            break;
         }
 
         transaction.addToBackStack(null);
         transaction.commit();
 
-        if  (id != R.id.nav_timetable) TimetableAsyncTask.cancel();
+        if (id != R.id.nav_timetable) { TimetableAsyncTask.cancel(); }
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
@@ -192,5 +122,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onPause() {
         super.onPause();
         TimetableAsyncTask.cancel();
+    }
+
+    private void changeFragment(Fragment fragment, String TAG) {
+
+        String[] fragments = {
+                TimetableFragment.TAG,
+                RoomsFragment.TAG,
+                NewsFragment.TAG,
+                SectionInfoFragment.TAG,
+                GuidebookFragment.TAG,
+        };
+
+        boolean wasReplaced = false;
+
+        for (String checkTag : fragments) {
+            if (manager.findFragmentByTag(checkTag) != null) {
+                transaction.replace(R.id.container, fragment, TAG);
+                wasReplaced = true;
+            }
+        }
+        if (!wasReplaced) {
+            if (manager.findFragmentByTag(TAG) == null) {
+                transaction.add(R.id.container, fragment, TAG);
+            }
+        }
     }
 }
