@@ -8,6 +8,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/sectionTitle"
         android:padding="10dp"
-        android:textSize="@dimen/abc_text_size_large_material"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textSize="@dimen/abc_text_size_medium_material"
+        android:textIsSelectable="true"/>
 </LinearLayout>
