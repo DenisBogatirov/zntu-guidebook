@@ -30,6 +30,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHo
     @Override
     public void onBindViewHolder(NewsHolder holder, int position) {
         holder.textTitle.setText(news.get(position).getTitle());
+        holder.textText.setText(news.get(position).getText());
     }
 
     @Override
@@ -41,11 +42,13 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHo
 
         CardView cardView;
         TextView textTitle;
+        TextView textText;
 
         public NewsHolder(View itemView) {
             super(itemView);
             cardView = (CardView) itemView.findViewById(R.id.newsCardView);
             textTitle = (TextView) itemView.findViewById(R.id.newsTitle);
+            textText = (TextView) itemView.findViewById(R.id.newsText);
 
         }
     }
