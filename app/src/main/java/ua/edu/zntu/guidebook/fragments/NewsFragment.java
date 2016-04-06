@@ -27,7 +27,7 @@ public class NewsFragment extends Fragment {
 
         newsWebView = (WebView) view.findViewById(R.id.news_webview);
         newsWebView.getSettings().setJavaScriptEnabled(true);
-        newsWebView.loadUrl("http://pks-zntu.org.ua/NewsPKS/index.php");
+        newsWebView.loadUrl("http://denisbogatirov.ho.ua/json.php");
 
         fabRefresh = (FloatingActionButton) view.findViewById(R.id.fabRefresh);
 

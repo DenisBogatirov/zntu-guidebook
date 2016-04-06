@@ -130,8 +130,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 TimetableFragment.TAG,
                 RoomsFragment.TAG,
                 NewsFragment.TAG,
-                SectionInfoFragment.TAG,
                 GuidebookFragment.TAG,
+                SectionInfoFragment.TAG
         };
 
         boolean wasReplaced = false;

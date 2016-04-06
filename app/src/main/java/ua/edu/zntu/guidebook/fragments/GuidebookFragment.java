@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -122,8 +123,10 @@ public class GuidebookFragment extends Fragment{
 
         sectionListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("Section", sections.get(position));
+
                 SectionInfoFragment sectionInfoFragment = new SectionInfoFragment();
                 sectionInfoFragment.setArguments(bundle);
 
@@ -131,11 +134,9 @@ public class GuidebookFragment extends Fragment{
                 final FragmentTransaction transaction = manager.beginTransaction();
 
 
-
-                if (manager.findFragmentByTag(GuidebookFragment.TAG) != null){
+                if (manager.findFragmentByTag(GuidebookFragment.TAG) != null) {
                     transaction.replace(R.id.container, sectionInfoFragment, SectionInfoFragment.TAG);
-                }
-                else if (manager.findFragmentByTag(SectionInfoFragment.TAG) == null) {
+                } else if (manager.findFragmentByTag(SectionInfoFragment.TAG) == null) {
                     transaction.add(R.id.container, sectionInfoFragment, SectionInfoFragment.TAG);
                 }
 
