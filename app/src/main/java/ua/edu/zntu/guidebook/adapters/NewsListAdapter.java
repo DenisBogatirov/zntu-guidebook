@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.LinkedList;
@@ -31,6 +32,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHo
     public void onBindViewHolder(NewsHolder holder, int position) {
         holder.textTitle.setText(news.get(position).getTitle());
         holder.textText.setText(news.get(position).getText());
+        holder.imageView.setImageBitmap(news.get(position).getImg());
     }
 
     @Override
@@ -43,12 +45,14 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHo
         CardView cardView;
         TextView textTitle;
         TextView textText;
+        ImageView imageView;
 
         public NewsHolder(View itemView) {
             super(itemView);
             cardView = (CardView) itemView.findViewById(R.id.newsCardView);
             textTitle = (TextView) itemView.findViewById(R.id.newsTitle);
             textText = (TextView) itemView.findViewById(R.id.newsText);
+            imageView = (ImageView) itemView.findViewById(R.id.newsImage);
 
         }
     }

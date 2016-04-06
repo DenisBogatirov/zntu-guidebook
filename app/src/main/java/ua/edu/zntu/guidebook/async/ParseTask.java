@@ -1,6 +1,9 @@
 package ua.edu.zntu.guidebook.async;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -58,8 +61,17 @@ public class ParseTask extends AsyncTask<Void, Void, LinkedList<NewsDTO>> {
             for (int i = 0; i < news.length(); i++) {
                 String title = news.getJSONObject(i).getString("title");
                 String text = news.getJSONObject(i).getString("text");
+                String urldisplay = "http://denisbogatirov.ho.ua/images/mobile_news_images/KVN.jpg";
+                Bitmap mIcon11 = null;
+                try {
+                    InputStream in = new java.net.URL(urldisplay).openStream();
+                    mIcon11 = BitmapFactory.decodeStream(in);
+                } catch (Exception e) {
+                    Log.e("Error", e.getMessage());
+                    e.printStackTrace();
+                }
 
-                listNewsDTO.add(new NewsDTO(title, text));
+                listNewsDTO.add(new NewsDTO(title, text, mIcon11));
             }
         }
         catch (JSONException e) {
