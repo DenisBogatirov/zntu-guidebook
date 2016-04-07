@@ -112,4 +112,13 @@ public class TodosDTO {
         this.additionalProperties.put(name, value);
     }
 
+    @Override
+    public String toString() {
+        return "TodosDTO{" +
+                "userId='" + userId + '\'' +
+                ", id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", completed='" + completed + '\'' +
+                '}';
+    }
 }

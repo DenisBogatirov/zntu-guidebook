@@ -71,7 +71,7 @@ public class ParseTask extends AsyncTask<Void, Void, LinkedList<NewsDTO>> {
                     e.printStackTrace();
                 }
 
-                listNewsDTO.add(new NewsDTO(title, text, mIcon11));
+//                listNewsDTO.add(new NewsDTO(title, text, mIcon11));
             }
         }
         catch (JSONException e) {

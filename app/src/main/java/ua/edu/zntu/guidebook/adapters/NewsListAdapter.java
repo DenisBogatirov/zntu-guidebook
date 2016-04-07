@@ -12,12 +12,13 @@ import java.util.LinkedList;
 
 import ua.edu.zntu.guidebook.R;
 import ua.edu.zntu.guidebook.dto.NewsDTO;
+import ua.edu.zntu.guidebook.dto.TodosDTO;
 
 public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHolder>{
 
-    private LinkedList<NewsDTO> news;
+    private LinkedList<TodosDTO> news;
 
-    public NewsListAdapter(LinkedList<NewsDTO> news) {
+    public NewsListAdapter(LinkedList<TodosDTO> news) {
         this.news = news;
     }
 
@@ -30,9 +31,9 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHo
 
     @Override
     public void onBindViewHolder(NewsHolder holder, int position) {
-        holder.textTitle.setText(news.get(position).getTitle());
-        holder.textText.setText(news.get(position).getText());
-        holder.imageView.setImageBitmap(news.get(position).getImg());
+        holder.textTitle.setText(news.get(position).getId());
+        holder.textText.setText(news.get(position).getTitle());
+//        holder.imageView.setImageBitmap(news.get(position).getImg());
     }
 
     @Override
