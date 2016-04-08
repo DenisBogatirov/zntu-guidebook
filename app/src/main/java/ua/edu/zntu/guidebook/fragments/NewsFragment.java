@@ -32,6 +32,7 @@ import ua.edu.zntu.guidebook.R;
 import ua.edu.zntu.guidebook.adapters.NewsListAdapter;
 import ua.edu.zntu.guidebook.api.ApiEndpointInterface;
 import ua.edu.zntu.guidebook.async.ParseTask;
+import ua.edu.zntu.guidebook.dto.Example;
 import ua.edu.zntu.guidebook.dto.NewsDTO;
 import ua.edu.zntu.guidebook.dto.TodosDTO;
 
@@ -40,7 +41,7 @@ public class NewsFragment extends Fragment {
     public static final String TAG = "NewsFragmentTag";
     private static final int LAYOUT = R.layout.new_news_layout;
     public static final String LOG_TAG = "MyTAG";
-    public static final String BASE_URL = "http://jsonplaceholder.typicode.com/";
+    public static final String BASE_URL = "http://denisbogatirov.ho.ua/";
 
 
     private View view;
@@ -92,10 +93,10 @@ public class NewsFragment extends Fragment {
         ApiEndpointInterface apiService =
                 retrofit.create(ApiEndpointInterface.class);
 
-        Observable<LinkedList<TodosDTO>> call = apiService.getTodos();
+        Observable<LinkedList<Example>> call = apiService.getTodos();
         Subscription subscription = call
                 .subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
-                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<LinkedList<TodosDTO>>() {
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<LinkedList<Example>>() {
                     @Override
                     public void onCompleted() {
 
@@ -108,19 +109,14 @@ public class NewsFragment extends Fragment {
                             HttpException response = (HttpException) e;
                             int code = response.code();
                         }
+                        Log.d(LOG_TAG,"Error");
                     }
 
                     @Override
-                    public void onNext(LinkedList<TodosDTO> todos) {
-                        try {
-                            TimeUnit.SECONDS.sleep(5);
-                        }
-                        catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        setNews(todos);
+                    public void onNext(LinkedList<Example> todos) {
+                        Log.d(LOG_TAG, "onNext");
+//                        setNews(todos);
                         Log.d(LOG_TAG, todos.toString());
-
                     }
                 });
 
