@@ -11,7 +11,6 @@ import android.widget.TextView;
 import java.util.LinkedList;
 
 import ua.edu.zntu.guidebook.R;
-import ua.edu.zntu.guidebook.dto.NewsDTO;
 import ua.edu.zntu.guidebook.dto.TodosDTO;
 
 public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHolder>{
@@ -31,7 +30,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHo
 
     @Override
     public void onBindViewHolder(NewsHolder holder, int position) {
-        holder.textTitle.setText(news.get(position).getId());
+        holder.textTitle.setText(String.valueOf(news.get(position).getId()));
         holder.textText.setText(news.get(position).getTitle());
 //        holder.imageView.setImageBitmap(news.get(position).getImg());
     }

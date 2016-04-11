@@ -10,15 +10,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.LinkedList;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.HttpException;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -31,9 +28,6 @@ import rx.schedulers.Schedulers;
 import ua.edu.zntu.guidebook.R;
 import ua.edu.zntu.guidebook.adapters.NewsListAdapter;
 import ua.edu.zntu.guidebook.api.ApiEndpointInterface;
-import ua.edu.zntu.guidebook.async.ParseTask;
-import ua.edu.zntu.guidebook.dto.Example;
-import ua.edu.zntu.guidebook.dto.NewsDTO;
 import ua.edu.zntu.guidebook.dto.TodosDTO;
 
 public class NewsFragment extends Fragment {
@@ -41,7 +35,7 @@ public class NewsFragment extends Fragment {
     public static final String TAG = "NewsFragmentTag";
     private static final int LAYOUT = R.layout.new_news_layout;
     public static final String LOG_TAG = "MyTAG";
-    public static final String BASE_URL = "http://denisbogatirov.ho.ua/";
+    public static final String BASE_URL = "http://jsonplaceholder.typicode.com/";
 
 
     private View view;
@@ -49,7 +43,11 @@ public class NewsFragment extends Fragment {
     private Context context;
     private RecyclerView rv;
     private LinkedList<TodosDTO> news = new LinkedList<>();
-
+    private RxJavaCallAdapterFactory rxAdapter;
+    private Retrofit retrofit;
+    private ApiEndpointInterface apiService;
+    private Observable<LinkedList<TodosDTO>> request;
+    private Subscription subscription;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -68,8 +66,18 @@ public class NewsFragment extends Fragment {
             }
         });
 
-        getNews();
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
 
+        rxAdapter = RxJavaCallAdapterFactory.createWithScheduler(Schedulers.io());
+        retrofit = new Retrofit.Builder().baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addCallAdapterFactory(rxAdapter)
+                .build();
+        apiService = retrofit.create(ApiEndpointInterface.class);
+        request = apiService.getTodos().cache();
+        getNews();
         return view;
     }
 
@@ -82,21 +90,9 @@ public class NewsFragment extends Fragment {
 
         // --------RXJava Starts Here---------
 
-        RxJavaCallAdapterFactory rxAdapter = RxJavaCallAdapterFactory.createWithScheduler(Schedulers.io());
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(rxAdapter)
-                .build();
-
-        ApiEndpointInterface apiService =
-                retrofit.create(ApiEndpointInterface.class);
-
-        Observable<LinkedList<Example>> call = apiService.getTodos();
-        Subscription subscription = call
+        subscription = request
                 .subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
-                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<LinkedList<Example>>() {
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<LinkedList<TodosDTO>>() {
                     @Override
                     public void onCompleted() {
 
@@ -110,13 +106,13 @@ public class NewsFragment extends Fragment {
                             int code = response.code();
                         }
                         Log.d(LOG_TAG,"Error");
+                        e.printStackTrace();
                     }
 
                     @Override
-                    public void onNext(LinkedList<Example> todos) {
+                    public void onNext(LinkedList<TodosDTO> result) {
                         Log.d(LOG_TAG, "onNext");
-//                        setNews(todos);
-                        Log.d(LOG_TAG, todos.toString());
+                        setNews(result);
                     }
                 });
 
@@ -125,4 +121,9 @@ public class NewsFragment extends Fragment {
 
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        subscription.unsubscribe();
+    }
 }

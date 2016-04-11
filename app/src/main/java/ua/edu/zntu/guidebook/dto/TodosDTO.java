@@ -1,43 +1,31 @@
 package ua.edu.zntu.guidebook.dto;
 
-import java.util.HashMap;
-import java.util.Map;
 import javax.annotation.Generated;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 @Generated("org.jsonschema2pojo")
 public class TodosDTO {
 
-    private String type;
-    private String userId;
-    private String id;
+    @SerializedName("userId")
+    @Expose
+    private Integer userId;
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("title")
+    @Expose
     private String title;
-    private String completed;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-
-    /**
-     *
-     * @return
-     * The type
-     */
-    public String getType() {
-        return type;
-    }
-
-    /**
-     *
-     * @param type
-     * The type
-     */
-    public void setType(String type) {
-        this.type = type;
-    }
+    @SerializedName("completed")
+    @Expose
+    private Boolean completed;
 
     /**
      *
      * @return
      * The userId
      */
-    public String getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
@@ -46,7 +34,7 @@ public class TodosDTO {
      * @param userId
      * The userId
      */
-    public void setUserId(String userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -55,7 +43,7 @@ public class TodosDTO {
      * @return
      * The id
      */
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -64,7 +52,7 @@ public class TodosDTO {
      * @param id
      * The id
      */
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -91,7 +79,7 @@ public class TodosDTO {
      * @return
      * The completed
      */
-    public String getCompleted() {
+    public Boolean getCompleted() {
         return completed;
     }
 
@@ -100,25 +88,8 @@ public class TodosDTO {
      * @param completed
      * The completed
      */
-    public void setCompleted(String completed) {
+    public void setCompleted(Boolean completed) {
         this.completed = completed;
     }
 
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
-    @Override
-    public String toString() {
-        return "TodosDTO{" +
-                "userId='" + userId + '\'' +
-                ", id='" + id + '\'' +
-                ", title='" + title + '\'' +
-                ", completed='" + completed + '\'' +
-                '}';
-    }
 }
