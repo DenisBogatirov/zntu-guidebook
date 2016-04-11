@@ -22,7 +22,7 @@ import ua.edu.zntu.guidebook.dto.NewsDTO;
 public class NewsFragment extends Fragment {
 
     public static final String TAG = "NewsFragmentTag";
-    private static final int LAYOUT = R.layout.new_news_layout;
+    private static final int LAYOUT = R.layout.news_layout;
 
     private View view;
     private WebView newsWebView;
@@ -39,42 +39,38 @@ public class NewsFragment extends Fragment {
 
         context = getContext();
         view = inflater.inflate(LAYOUT, container, false);
-        fabRefresh = (FloatingActionButton) view.findViewById(R.id.fabNewsRefresh);
-        RecyclerView rv = (RecyclerView) view.findViewById(R.id.newsRecyclerView);
-        rv.setLayoutManager(new LinearLayoutManager(context));
+        fabRefresh = (FloatingActionButton) view.findViewById(R.id.fabRefresh);
+//        RecyclerView rv = (RecyclerView) view.findViewById(R.id.newsRecyclerView);
+//        rv.setLayoutManager(new LinearLayoutManager(context));
+//        rv.setAdapter(new NewsListAdapter(getNews()));
+
+        newsWebView = (WebView) view.findViewById(R.id.news_webview);
+        newsWebView.getSettings().setJavaScriptEnabled(true);
+        newsWebView.loadUrl("http://pks-zntu.org.ua/NewsPKS/");
 
 
-
-
-        rv.setAdapter(new NewsListAdapter(getNews()));
-
-//        newsWebView = (WebView) view.findViewById(R.id.news_webview);
-//        newsWebView.getSettings().setJavaScriptEnabled(true);
-//        newsWebView.loadUrl("http://denisbogatirov.ho.ua/json.php");
-//
-//
-//        fabRefresh.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                newsWebView.reload();
-//            }
-//        });
+        fabRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                newsWebView.reload();
+            }
+        });
 
         return view;
     }
 
-    private LinkedList<NewsDTO> getNews() {
-        try {
-            if (task == null) {
-                return null;
-            }
-            return task.get();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
+//    private LinkedList<NewsDTO> getNews() {
+//        try {
+//            if (task == null) {
+//                return null;
+//            }
+//            return task.get();
+//        }
+//        catch (Exception e) {
+//            e.printStackTrace();
+//            return null;
+//        }
+//    }
 
 
 //    private LinkedList<NewsDTO> createMockData() {
