@@ -8,6 +8,6 @@ import ua.edu.zntu.guidebook.dto.TodosDTO;
 
 public interface ApiEndpointInterface {
 
-    @GET("/todos")
+    @GET("/index.php/mobile-news")
     Observable<LinkedList<TodosDTO>> getTodos();
 }
