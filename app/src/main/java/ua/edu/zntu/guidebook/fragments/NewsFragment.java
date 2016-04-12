@@ -63,7 +63,7 @@ public class NewsFragment extends Fragment {
         fabRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getNews();
+
             }
         });
 
