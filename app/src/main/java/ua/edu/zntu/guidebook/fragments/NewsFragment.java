@@ -28,6 +28,7 @@ import rx.schedulers.Schedulers;
 import ua.edu.zntu.guidebook.R;
 import ua.edu.zntu.guidebook.adapters.NewsListAdapter;
 import ua.edu.zntu.guidebook.api.ApiEndpointInterface;
+import ua.edu.zntu.guidebook.dto.NewsDTO;
 import ua.edu.zntu.guidebook.dto.TodosDTO;
 
 public class NewsFragment extends Fragment {
@@ -35,18 +36,18 @@ public class NewsFragment extends Fragment {
     public static final String TAG = "NewsFragmentTag";
     private static final int LAYOUT = R.layout.new_news_layout;
     public static final String LOG_TAG = "MyTAG";
-    public static final String BASE_URL = "http://jsonplaceholder.typicode.com/";
+    public static final String BASE_URL = "http://denisbogatirov.ho.ua/";
 
 
     private View view;
     private FloatingActionButton fabRefresh;
     private Context context;
     private RecyclerView rv;
-    private LinkedList<TodosDTO> news = new LinkedList<>();
+    private LinkedList<NewsDTO> news = new LinkedList<>();
     private RxJavaCallAdapterFactory rxAdapter;
     private Retrofit retrofit;
     private ApiEndpointInterface apiService;
-    private Observable<LinkedList<TodosDTO>> request;
+    private Observable<LinkedList<NewsDTO>> request;
     private Subscription subscription;
 
     @Override
@@ -57,7 +58,7 @@ public class NewsFragment extends Fragment {
         fabRefresh = (FloatingActionButton) view.findViewById(R.id.fabNewsRefresh);
         rv = (RecyclerView) view.findViewById(R.id.newsRecyclerView);
         rv.setLayoutManager(new LinearLayoutManager(context));
-        rv.setAdapter(new NewsListAdapter(news));
+        rv.setAdapter(new NewsListAdapter(news, context));
 
         fabRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,8 +83,8 @@ public class NewsFragment extends Fragment {
     }
 
 
-    private void setNews(LinkedList<TodosDTO> news) {
-        this.rv.setAdapter(new NewsListAdapter(news));
+    private void setNews(LinkedList<NewsDTO> news) {
+        this.rv.setAdapter(new NewsListAdapter(news, this.context));
     }
 
     private void getNews () {
@@ -92,7 +93,7 @@ public class NewsFragment extends Fragment {
 
         subscription = request
                 .subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
-                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<LinkedList<TodosDTO>>() {
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<LinkedList<NewsDTO>>() {
                     @Override
                     public void onCompleted() {
 
@@ -110,8 +111,7 @@ public class NewsFragment extends Fragment {
                     }
 
                     @Override
-                    public void onNext(LinkedList<TodosDTO> result) {
-                        Log.d(LOG_TAG, "onNext");
+                    public void onNext(LinkedList<NewsDTO> result) {
                         setNews(result);
                     }
                 });
