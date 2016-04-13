@@ -32,6 +32,7 @@ import ua.edu.zntu.guidebook.adapters.NewsListAdapter;
 import ua.edu.zntu.guidebook.api.ApiConstants;
 import ua.edu.zntu.guidebook.api.ApiEndpointInterface;
 import ua.edu.zntu.guidebook.dto.NewsDTO;
+import ua.edu.zntu.guidebook.ui.EndlessRecyclerViewScrollListener;
 
 public class NewsFragment extends Fragment {
 
@@ -49,21 +50,36 @@ public class NewsFragment extends Fragment {
     private ApiEndpointInterface apiService;
     private Observable<LinkedList<NewsDTO>> request;
     private Subscription subscription;
+    private LinearLayoutManager linearLayoutManager;
+    private NewsListAdapter newsListAdapter;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         context = getContext();
         view = inflater.inflate(LAYOUT, container, false);
+        linearLayoutManager = new LinearLayoutManager(context);
         fabRefresh = (FloatingActionButton) view.findViewById(R.id.fabNewsRefresh);
+        newsListAdapter = new NewsListAdapter(news, context);
+
         rv = (RecyclerView) view.findViewById(R.id.newsRecyclerView);
-        rv.setLayoutManager(new LinearLayoutManager(context));
-        rv.setAdapter(new NewsListAdapter(news, context));
+        rv.setLayoutManager(linearLayoutManager);
+        rv.setAdapter(newsListAdapter);
+        rv.addOnScrollListener(new EndlessRecyclerViewScrollListener(linearLayoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount) {
+                // fetch data here
+                getNews(totalItemsCount);
+
+
+            }
+        });
 
         fabRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                getNews(newsListAdapter.getItemCount());
             }
         });
 
@@ -77,23 +93,26 @@ public class NewsFragment extends Fragment {
                 .addCallAdapterFactory(rxAdapter)
                 .build();
         apiService = retrofit.create(ApiEndpointInterface.class);
-        request = apiService.getTodos().cache();
-        getNews();
+
+        getNews(0);
         return view;
     }
 
 
     private void setNews(LinkedList<NewsDTO> news) {
-        this.rv.setAdapter(new NewsListAdapter(news, this.context));
+            newsListAdapter.addItems(news);
+            newsListAdapter.notifyDataSetChanged();
     }
 
-    private void getNews () {
+    private void getNews(int offset) {
 
         // --------RXJava Starts Here---------
 
-        subscription = request
-                .subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
-                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<LinkedList<NewsDTO>>() {
+        request = apiService.getTodos(offset).cache();
+
+        subscription = request.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<LinkedList<NewsDTO>>() {
                     @Override
                     public void onCompleted() {
 

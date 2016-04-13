@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.LinkedList;
 
@@ -39,13 +40,10 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHo
     public void onBindViewHolder(NewsHolder holder, int position) {
         holder.textTitle.setText(String.valueOf(news.get(position).getNewsTitle()));
         holder.textText.setText(news.get(position).getNewsText());
-//        Picasso.with(context).load(ApiConstants.BASE_URL+news.get(position).getNewsLitteImg())
-//                .transform(new CropTransformation())
-//                .into(holder.imageView);
-        Glide.with(context)
-                .load(ApiConstants.BASE_URL+news.get(position).getNewsLitteImg())
-                .into(holder.imageView);
 
+        Glide.with(context)
+                .load(ApiConstants.BASE_URL + news.get(position).getNewsLitteImg())
+                .into(holder.imageView);
     }
 
     @Override
@@ -67,6 +65,12 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHo
             textText = (TextView) itemView.findViewById(R.id.newsText);
             imageView = (ImageView) itemView.findViewById(R.id.newsImage);
 
+        }
+    }
+
+    public void addItems(LinkedList<NewsDTO> news){
+        for (NewsDTO obj : news){
+            this.news.add(obj);
         }
     }
 
