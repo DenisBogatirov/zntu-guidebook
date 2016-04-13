@@ -8,6 +8,6 @@ import ua.edu.zntu.guidebook.dto.NewsDTO;
 
 public interface ApiEndpointInterface {
 
-    @GET("/index.php?option=com_mobilenews&view=mobilenews")
+    @GET(ApiConstants.GET_NEWS_URL)
     Observable<LinkedList<NewsDTO>> getTodos();
 }

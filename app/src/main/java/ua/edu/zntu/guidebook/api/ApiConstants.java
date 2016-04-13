@@ -1,6 +1,6 @@
 package ua.edu.zntu.guidebook.api;
 
-/**
- * Created by denis on 4/13/16.
- */
-public class ApiConstants {}
+public class ApiConstants {
+    public static final String BASE_URL = "http://192.168.1.238/";
+    public static final String GET_NEWS_URL = "/index.php?option=com_mobilenews&view=mobilenews";
+}

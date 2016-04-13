@@ -3,6 +3,7 @@ package ua.edu.zntu.guidebook.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.net.ConnectException;
 import java.util.LinkedList;
 
 import retrofit2.Retrofit;
@@ -27,17 +29,15 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import ua.edu.zntu.guidebook.R;
 import ua.edu.zntu.guidebook.adapters.NewsListAdapter;
+import ua.edu.zntu.guidebook.api.ApiConstants;
 import ua.edu.zntu.guidebook.api.ApiEndpointInterface;
 import ua.edu.zntu.guidebook.dto.NewsDTO;
-import ua.edu.zntu.guidebook.dto.TodosDTO;
 
 public class NewsFragment extends Fragment {
 
     public static final String TAG = "NewsFragmentTag";
     private static final int LAYOUT = R.layout.new_news_layout;
     public static final String LOG_TAG = "MyTAG";
-    public static final String BASE_URL = "http://denisbogatirov.ho.ua/";
-
 
     private View view;
     private FloatingActionButton fabRefresh;
@@ -72,7 +72,7 @@ public class NewsFragment extends Fragment {
                 .create();
 
         rxAdapter = RxJavaCallAdapterFactory.createWithScheduler(Schedulers.io());
-        retrofit = new Retrofit.Builder().baseUrl(BASE_URL)
+        retrofit = new Retrofit.Builder().baseUrl(ApiConstants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(rxAdapter)
                 .build();
@@ -105,9 +105,13 @@ public class NewsFragment extends Fragment {
                         if (e instanceof HttpException) {
                             HttpException response = (HttpException) e;
                             int code = response.code();
+                            Log.e(LOG_TAG, String.valueOf(code));
                         }
-                        Log.d(LOG_TAG,"Error");
-                        e.printStackTrace();
+                        else if (e instanceof ConnectException){
+                            Snackbar.make(view, "Неможливо оновити новини", Snackbar.LENGTH_LONG).show();
+                        }
+                            e.printStackTrace();
+
                     }
 
                     @Override

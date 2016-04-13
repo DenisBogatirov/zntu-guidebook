@@ -9,19 +9,19 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 import java.util.LinkedList;
 
 import ua.edu.zntu.guidebook.R;
+import ua.edu.zntu.guidebook.api.ApiConstants;
 import ua.edu.zntu.guidebook.dto.NewsDTO;
-import ua.edu.zntu.guidebook.dto.TodosDTO;
 
 public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHolder>{
 
     private LinkedList<NewsDTO> news;
     private Context context;
-    private final String URL = "http://denisbogatirov.ho.ua/";
+
 
     public NewsListAdapter(LinkedList<NewsDTO> news, Context context) {
         this.news = news;
@@ -39,8 +39,13 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHo
     public void onBindViewHolder(NewsHolder holder, int position) {
         holder.textTitle.setText(String.valueOf(news.get(position).getNewsTitle()));
         holder.textText.setText(news.get(position).getNewsText());
-        Picasso.with(context).load(URL+news.get(position).getNewsLitteImg()).into(holder.imageView);
-//        holder.imageView.setImageBitmap(news.get(position).getImg());
+//        Picasso.with(context).load(ApiConstants.BASE_URL+news.get(position).getNewsLitteImg())
+//                .transform(new CropTransformation())
+//                .into(holder.imageView);
+        Glide.with(context)
+                .load(ApiConstants.BASE_URL+news.get(position).getNewsLitteImg())
+                .into(holder.imageView);
+
     }
 
     @Override
