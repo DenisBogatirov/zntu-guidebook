@@ -29,9 +29,11 @@ import com.google.android.gms.iid.InstanceID;
 
 import java.io.IOException;
 
+import ua.edu.zntu.guidebook.R;
+
 public class RegistrationIntentService extends IntentService {
 
-    private static final String TAG = "RegIntentService";
+    private static final String TAG = "MyTAG";
     private static final String[] TOPICS = {"global"};
 
     public RegistrationIntentService() {

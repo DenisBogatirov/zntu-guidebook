@@ -6,12 +6,45 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
 
+    <permission android:name="ua.edu.zntu.guidebook.permission.C2D_MESSAGE"
+                android:protectionLevel="signature" />
+    <uses-permission android:name="ua.edu.zntu.guidebook.permission.C2D_MESSAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <category android:name="ua.edu.zntu.guidebook.gcm" />
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="ua.edu.zntu.guidebook.gcm.NewsGcmListenerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="ua.edu.zntu.guidebook.gcm.NewsInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="ua.edu.zntu.guidebook.gcm.RegistrationIntentService"
+            android:exported="false">
+        </service>
         <activity
             android:name=".activities.MainActivity"
             android:label="@string/app_name"
