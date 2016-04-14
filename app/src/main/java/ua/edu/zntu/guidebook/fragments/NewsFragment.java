@@ -3,89 +3,150 @@ package ua.edu.zntu.guidebook.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.net.ConnectException;
 import java.util.LinkedList;
-import java.util.concurrent.ExecutionException;
 
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.HttpException;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
+import rx.Observable;
+import rx.Subscriber;
+import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 import ua.edu.zntu.guidebook.R;
 import ua.edu.zntu.guidebook.adapters.NewsListAdapter;
-import ua.edu.zntu.guidebook.async.ParseTask;
+import ua.edu.zntu.guidebook.api.ApiConstants;
+import ua.edu.zntu.guidebook.api.ApiEndpointInterface;
 import ua.edu.zntu.guidebook.dto.NewsDTO;
+import ua.edu.zntu.guidebook.ui.EndlessRecyclerViewScrollListener;
 
 public class NewsFragment extends Fragment {
 
     public static final String TAG = "NewsFragmentTag";
-    private static final int LAYOUT = R.layout.news_layout;
+    private static final int LAYOUT = R.layout.new_news_layout;
+    public static final String LOG_TAG = "MyTAG";
 
     private View view;
-    private WebView newsWebView;
     private FloatingActionButton fabRefresh;
     private Context context;
-    private ParseTask task;
+    private RecyclerView rv;
+    private LinkedList<NewsDTO> news = new LinkedList<>();
+    private RxJavaCallAdapterFactory rxAdapter;
+    private Retrofit retrofit;
+    private ApiEndpointInterface apiService;
+    private Observable<LinkedList<NewsDTO>> request;
+    private Subscription subscription;
+    private LinearLayoutManager linearLayoutManager;
+    private NewsListAdapter newsListAdapter;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        task = new ParseTask();
-        task.execute();
-
         context = getContext();
         view = inflater.inflate(LAYOUT, container, false);
-        fabRefresh = (FloatingActionButton) view.findViewById(R.id.fabRefresh);
-//        RecyclerView rv = (RecyclerView) view.findViewById(R.id.newsRecyclerView);
-//        rv.setLayoutManager(new LinearLayoutManager(context));
-//        rv.setAdapter(new NewsListAdapter(getNews()));
+        linearLayoutManager = new LinearLayoutManager(context);
+        fabRefresh = (FloatingActionButton) view.findViewById(R.id.fabNewsRefresh);
+        newsListAdapter = new NewsListAdapter(news, context);
 
-        newsWebView = (WebView) view.findViewById(R.id.news_webview);
-        newsWebView.getSettings().setJavaScriptEnabled(true);
-        newsWebView.loadUrl("http://pks-zntu.org.ua/NewsPKS/");
-
+        rv = (RecyclerView) view.findViewById(R.id.newsRecyclerView);
+        rv.setLayoutManager(linearLayoutManager);
+        rv.setAdapter(newsListAdapter);
+        rv.addOnScrollListener(new EndlessRecyclerViewScrollListener(linearLayoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount) {
+                // fetch data here
+                getNews(totalItemsCount);
+            }
+        });
 
         fabRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                newsWebView.reload();
+                newsListAdapter.reset();
+                newsListAdapter.notifyDataSetChanged();
+                getNews(0);
             }
         });
 
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
+
+        rxAdapter = RxJavaCallAdapterFactory.createWithScheduler(Schedulers.io());
+        retrofit = new Retrofit.Builder().baseUrl(ApiConstants.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addCallAdapterFactory(rxAdapter)
+                .build();
+        apiService = retrofit.create(ApiEndpointInterface.class);
+
+        getNews(0);
         return view;
     }
 
-//    private LinkedList<NewsDTO> getNews() {
-//        try {
-//            if (task == null) {
-//                return null;
-//            }
-//            return task.get();
-//        }
-//        catch (Exception e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
+
+    private void setNews(LinkedList<NewsDTO> news) {
+            newsListAdapter.addItems(news);
+            newsListAdapter.notifyDataSetChanged();
+    }
+
+    private void getNews(int offset) {
+
+        // --------RXJava Starts Here---------
+
+        request = apiService.getTodos(offset).cache();
+
+        subscription = request.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<LinkedList<NewsDTO>>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        // cast to retrofit.HttpException to get the response code
+                        if (e instanceof HttpException) {
+                            HttpException response = (HttpException) e;
+                            int code = response.code();
+                            Log.e(LOG_TAG, String.valueOf(code));
+                        }
+                        else if (e instanceof ConnectException){
+                            Snackbar.make(view, "Неможливо оновити новини", Snackbar.LENGTH_LONG).show();
+                        }
+                            e.printStackTrace();
+
+                    }
+
+                    @Override
+                    public void onNext(LinkedList<NewsDTO> result) {
+                        setNews(result);
+                    }
+                });
 
 
-//    private LinkedList<NewsDTO> createMockData() {
-//        LinkedList<NewsDTO> news = new LinkedList<>();
-//        news.add(new NewsDTO("1"));
-//        news.add(new NewsDTO("2"));
-//        news.add(new NewsDTO("3"));
-//        news.add(new NewsDTO("4"));
-//        news.add(new NewsDTO("5"));
-//        news.add(new NewsDTO("6"));
-//        news.add(new NewsDTO("7"));
-//        news.add(new NewsDTO("8"));
-//        news.add(new NewsDTO("9"));
-//        news.add(new NewsDTO("10"));
-//        return news;
-//    }
+        // --------RXJava Ends Here-----------
 
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        subscription.unsubscribe();
+    }
 }
