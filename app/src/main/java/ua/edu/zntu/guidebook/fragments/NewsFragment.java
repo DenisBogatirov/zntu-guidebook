@@ -71,15 +71,15 @@ public class NewsFragment extends Fragment {
             public void onLoadMore(int page, int totalItemsCount) {
                 // fetch data here
                 getNews(totalItemsCount);
-
-
             }
         });
 
         fabRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getNews(newsListAdapter.getItemCount());
+                newsListAdapter.reset();
+                newsListAdapter.notifyDataSetChanged();
+                getNews(0);
             }
         });
 

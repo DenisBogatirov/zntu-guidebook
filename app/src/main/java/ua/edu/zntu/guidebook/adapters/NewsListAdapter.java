@@ -3,9 +3,12 @@ package ua.edu.zntu.guidebook.adapters;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,7 +25,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHo
 
     private LinkedList<NewsDTO> news;
     private Context context;
-
+    public static final String LOG_TAG = "MyTAG";
 
     public NewsListAdapter(LinkedList<NewsDTO> news, Context context) {
         this.news = news;
@@ -41,8 +44,24 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHo
         holder.textTitle.setText(String.valueOf(news.get(position).getNewsTitle()));
         holder.textText.setText(news.get(position).getNewsText());
 
-        Glide.with(context)
-                .load(ApiConstants.BASE_URL + news.get(position).getNewsLitteImg())
+        DisplayMetrics metrics = new DisplayMetrics();
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        wm.getDefaultDisplay().getMetrics(metrics);
+        int originalWidth = news.get(position).getNewsImgWidth();
+        int originalHeight = news.get(position).getNewsImgHeight();
+        float cardViewWidth = metrics.widthPixels - 20*metrics.density;
+        float coefficient;
+        int width;
+        int height;
+
+        coefficient = cardViewWidth/originalWidth ;
+
+        width = (int) (originalWidth * coefficient + 1);
+        height = (int) (originalHeight * coefficient);
+
+        Glide.with(context).load(ApiConstants.BASE_URL + news.get(position).getNewsLitteImg())
+                .override(width, height)
+                .fitCenter()
                 .into(holder.imageView);
     }
 
@@ -70,8 +89,14 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHo
 
     public void addItems(LinkedList<NewsDTO> news){
         for (NewsDTO obj : news){
-            this.news.add(obj);
+            if(!this.news.contains(obj)) {
+                this.news.add(obj);
+            }
         }
+    }
+
+    public void reset(){
+        this.news.clear();
     }
 
 }

@@ -1,8 +1,6 @@
 package ua.edu.zntu.guidebook.dto;
 
-
 import javax.annotation.Generated;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -11,7 +9,7 @@ public class NewsDTO {
 
     @SerializedName("newsID")
     @Expose
-    private String newsID;
+    private Integer newsID;
     @SerializedName("newsDate")
     @Expose
     private String newsDate;
@@ -24,75 +22,138 @@ public class NewsDTO {
     @SerializedName("newsText")
     @Expose
     private String newsText;
+    @SerializedName("newsImgWidth")
+    @Expose
+    private Integer newsImgWidth;
+    @SerializedName("newsImgHeight")
+    @Expose
+    private Integer newsImgHeight;
 
     /**
-     * @return The newsID
+     *
+     * @return
+     * The newsID
      */
-    public String getNewsID() {
+    public Integer getNewsID() {
         return newsID;
     }
 
     /**
-     * @param newsID The newsID
+     *
+     * @param newsID
+     * The newsID
      */
-    public void setNewsID(String newsID) {
+    public void setNewsID(Integer newsID) {
         this.newsID = newsID;
     }
 
     /**
-     * @return The newsDate
+     *
+     * @return
+     * The newsDate
      */
     public String getNewsDate() {
         return newsDate;
     }
 
     /**
-     * @param newsDate The newsDate
+     *
+     * @param newsDate
+     * The newsDate
      */
     public void setNewsDate(String newsDate) {
         this.newsDate = newsDate;
     }
 
     /**
-     * @return The newsTitle
+     *
+     * @return
+     * The newsTitle
      */
     public String getNewsTitle() {
         return newsTitle;
     }
 
     /**
-     * @param newsTitle The newsTitle
+     *
+     * @param newsTitle
+     * The newsTitle
      */
     public void setNewsTitle(String newsTitle) {
         this.newsTitle = newsTitle;
     }
 
     /**
-     * @return The newsLitteImg
+     *
+     * @return
+     * The newsLitteImg
      */
     public String getNewsLitteImg() {
         return newsLitteImg;
     }
 
     /**
-     * @param newsLitteImg The newsLitteImg
+     *
+     * @param newsLitteImg
+     * The newsLitteImg
      */
     public void setNewsLitteImg(String newsLitteImg) {
         this.newsLitteImg = newsLitteImg;
     }
 
     /**
-     * @return The newsText
+     *
+     * @return
+     * The newsText
      */
     public String getNewsText() {
         return newsText;
     }
 
     /**
-     * @param newsText The newsText
+     *
+     * @param newsText
+     * The newsText
      */
     public void setNewsText(String newsText) {
         this.newsText = newsText;
     }
 
+    /**
+     *
+     * @return
+     * The newsImgWidth
+     */
+    public Integer getNewsImgWidth() {
+        return newsImgWidth;
+    }
+
+    /**
+     *
+     * @param newsImgWidth
+     * The newsImgWidth
+     */
+    public void setNewsImgWidth(Integer newsImgWidth) {
+        this.newsImgWidth = newsImgWidth;
+    }
+
+    /**
+     *
+     * @return
+     * The newsImgHeight
+     */
+    public Integer getNewsImgHeight() {
+        return newsImgHeight;
+    }
+
+    /**
+     *
+     * @param newsImgHeight
+     * The newsImgHeight
+     */
+    public void setNewsImgHeight(Integer newsImgHeight) {
+        this.newsImgHeight = newsImgHeight;
+    }
+
 }
+
