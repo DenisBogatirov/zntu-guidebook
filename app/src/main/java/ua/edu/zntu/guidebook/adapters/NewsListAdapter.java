@@ -59,9 +59,11 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHo
         width = (int) (originalWidth * coefficient + 1);
         height = (int) (originalHeight * coefficient);
 
+        holder.imageView.setMinimumHeight(height);
+
         Glide.with(context).load(ApiConstants.BASE_URL + news.get(position).getNewsLitteImg())
                 .override(width, height)
-                .fitCenter()
+
                 .into(holder.imageView);
     }
 

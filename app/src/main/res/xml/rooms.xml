@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <rooms>
 
 
@@ -74,13 +73,6 @@
     </room>
 
 
-    <room>
-        <title>131</title>
-        <housing>1</housing>
-        <floor>1</floor>
-        <description>Учбова аудиторія</description>
-    </room>
-
 
     <room>
         <title>132</title>
@@ -90,12 +82,6 @@
     </room>
 
 
-    <room>
-        <title>133</title>
-        <housing>1</housing>
-        <floor>1</floor>
-        <description>Учбова аудиторія</description>
-    </room>
 
 
     <room>
@@ -107,23 +93,7 @@
 
 
     <room>
-        <title>135</title>
-        <housing>1</housing>
-        <floor>1</floor>
-        <description>Учбова аудиторія</description>
-    </room>
-
-
-    <room>
         <title>136</title>
-        <housing>1</housing>
-        <floor>1</floor>
-        <description>Учбова аудиторія</description>
-    </room>
-
-
-    <room>
-        <title>137</title>
         <housing>1</housing>
         <floor>1</floor>
         <description>Учбова аудиторія</description>
@@ -908,14 +878,6 @@
 
 
     <room>
-        <title>перехід до корпусу №5</title>
-        <housing>1</housing>
-        <floor>2</floor>
-        <description>Учбова аудиторія</description>
-    </room>
-
-
-    <room>
         <title>250</title>
         <housing>1</housing>
         <floor>2</floor>
@@ -1252,14 +1214,6 @@
 
 
     <room>
-        <title>333</title>
-        <housing>1</housing>
-        <floor>3</floor>
-        <description>Учбова аудиторія</description>
-    </room>
-
-
-    <room>
         <title>334</title>
         <housing>1</housing>
         <floor>3</floor>
@@ -1317,14 +1271,6 @@
 
     <room>
         <title>340</title>
-        <housing>1</housing>
-        <floor>3</floor>
-        <description>Учбова аудиторія</description>
-    </room>
-
-
-    <room>
-        <title>341</title>
         <housing>1</housing>
         <floor>3</floor>
         <description>Учбова аудиторія</description>
@@ -1588,14 +1534,6 @@
 
 
     <room>
-        <title>368</title>
-        <housing>1</housing>
-        <floor>3</floor>
-        <description>Учбова аудиторія</description>
-    </room>
-
-
-    <room>
         <title>368а</title>
         <housing>1</housing>
         <floor>3</floor>
@@ -1687,7 +1625,7 @@
         <title>378</title>
         <housing>1</housing>
         <floor>3</floor>
-        <description>Учбова аудиторія</description>
+        <description>Декан машинобудівного факультету</description>
     </room>
 
 
@@ -1706,13 +1644,6 @@
         <description>Учбова аудиторія</description>
     </room>
 
-
-    <room>
-        <title>380</title>
-        <housing>1</housing>
-        <floor>3</floor>
-        <description>Учбова аудиторія</description>
-    </room>
 
 
     <room>
@@ -1735,7 +1666,7 @@
         <title>Музей</title>
         <housing>1</housing>
         <floor>3</floor>
-        <description>Учбова аудиторія</description>
+        <description>Музей ЗНТУ</description>
     </room>
 
 
@@ -2107,14 +2038,6 @@
 
     <room>
         <title>15а</title>
-        <housing>3</housing>
-        <floor>1</floor>
-        <description>Учбова аудиторія</description>
-    </room>
-
-
-    <room>
-        <title>16</title>
         <housing>3</housing>
         <floor>1</floor>
         <description>Учбова аудиторія</description>
@@ -2563,6 +2486,36 @@
         <description>Учбова аудиторія</description>
     </room>
 
+    <room>
+        <title>368а</title>
+        <housing>1</housing>
+        <floor>3</floor>
+        <description>Профком студентів ЗНТУ</description>
+    </room>
+
+
+    <room>
+        <title>405</title>
+        <housing>1</housing>
+        <floor>4</floor>
+        <description>Профком студентів ЗНТУ</description>
+    </room>
+
+    <room>
+        <title>329</title>
+        <housing>1</housing>
+        <floor>3</floor>
+        <description>Студентське самоврядування ЗНТУ</description>
+    </room>
+
+
+    <room>
+        <title>329а</title>
+        <housing>1</housing>
+        <floor>3</floor>
+        <description>Центр сприяння працевлаштуванню ЗНТУ</description>
+    </room>
+
 
     <room>
         <title>192а</title>
@@ -2592,7 +2545,7 @@
         <title>196</title>
         <housing>4</housing>
         <floor>1</floor>
-        <description>Учбова аудиторія</description>
+        <description>Профком студентів ЗНТУ (Оздоровлення)</description>
     </room>
 
 
@@ -2709,24 +2662,9 @@
     </room>
 
 
+
     <room>
         <title>298</title>
-        <housing>4</housing>
-        <floor>2</floor>
-        <description>Учбова аудиторія</description>
-    </room>
-
-
-    <room>
-        <title>298(а</title>
-        <housing>4</housing>
-        <floor>2</floor>
-        <description>Учбова аудиторія</description>
-    </room>
-
-
-    <room>
-        <title>297</title>
         <housing>4</housing>
         <floor>2</floor>
         <description>Учбова аудиторія</description>
@@ -3071,13 +3009,6 @@
     </room>
 
 
-    <room>
-        <title>534</title>
-        <housing>5</housing>
-        <floor>3</floor>
-        <description>Учбова аудиторія</description>
-    </room>
-
 
     <room>
         <title>536</title>
@@ -3160,7 +3091,7 @@
 
 
     <room>
-        <title>549а</title>
+        <title>549а.</title>
         <housing>5</housing>
         <floor>4</floor>
         <description>Учбова аудиторія</description>
