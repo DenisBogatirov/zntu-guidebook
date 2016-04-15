@@ -70,7 +70,7 @@ public class NewsGcmListenerService extends GcmListenerService {
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.mipmap.ic_stat_notification)
-                .setContentTitle("Got something")
+                .setContentTitle(getResources().getString(R.string.notification_ticker))
                 .setContentText(message)
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
