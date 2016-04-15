@@ -12,4 +12,9 @@
     <string name="notification_text">Прочитайте їх</string>
     <string name="notification_title">Ми зібрали свіжі новини</string>
     <string name="notification_ticker">Нові новини</string>
+    <string name="vk_label">VK:</string>
+    <string name="phone_label">Телефон:</string>
+    <string name="address_label">Адресса:</string>
+    <string name="room_label">Аудиторія:</string>
+    <string name="email_label">E-mail:</string>
 </resources>

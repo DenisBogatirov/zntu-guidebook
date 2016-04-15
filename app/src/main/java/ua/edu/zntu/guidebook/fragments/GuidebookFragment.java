@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +19,7 @@ import java.util.LinkedList;
 
 import ua.edu.zntu.guidebook.R;
 import ua.edu.zntu.guidebook.adapters.SectionAdapter;
+import ua.edu.zntu.guidebook.pojo.Deanery;
 import ua.edu.zntu.guidebook.pojo.Person;
 import ua.edu.zntu.guidebook.pojo.Section;
 
@@ -33,7 +33,7 @@ public class GuidebookFragment extends Fragment{
     private View view;
     private Context context;
     private LinkedList<Section> sections = new LinkedList<>();
-
+    public static final String LOG_TAG = "MyTAG";
     private static ListView sectionListView;
     private static SectionAdapter sectionAdapter;
 
@@ -51,8 +51,11 @@ public class GuidebookFragment extends Fragment{
 
         Section.Builder sectionBuilder = new Section.Builder();
         Person.Builder personBuilder = new Person.Builder();
+        Deanery.Builder deaneryBuilder = new Deanery.Builder();
         LinkedList<Person> tmpPersons = new LinkedList<>();
+        LinkedList<Deanery> tmpDeaneries = new LinkedList<>();
         Section tmpSection;
+        String parent = "";
         int counter = 0;
 
         try {
@@ -62,8 +65,14 @@ public class GuidebookFragment extends Fragment{
                 switch (xpp.getEventType()) {
                     // начало тэга
                     case XmlPullParser.START_TAG:
+                        if (xpp.getName().equals("person")){
+                            parent = xpp.getName();
+                        }
+                        if (xpp.getName().equals("deanery")){
+                            parent = xpp.getName();
+                        }
                         if (!xpp.getName().equals("guidebook") && !xpp.getName().equals("section")){
-                            if(xpp.getName().equals("title")){
+                            if(xpp.getName().equals("title") && xpp.getDepth() == 3){
                                 xpp.next();
                                 sectionBuilder.setTitle(xpp.getText());
                             }
@@ -75,7 +84,7 @@ public class GuidebookFragment extends Fragment{
                                 xpp.next();
                                 personBuilder.setName(xpp.getText());
                             }
-                            else if (xpp.getName().equals("phone")) {
+                            else if (xpp.getName().equals("phone") && parent.equals("person")) {
                                 xpp.next();
                                 personBuilder.setPhone(xpp.getText());
                             }
@@ -87,6 +96,26 @@ public class GuidebookFragment extends Fragment{
                                 xpp.next();
                                 personBuilder.setAdditional(xpp.getText());
                             }
+                            else if (xpp.getName().equals("title") && xpp.getDepth() == 4){
+                                xpp.next();
+                                deaneryBuilder.setTitle(xpp.getText());
+                            }
+                            else if (xpp.getName().equals("address")){
+                                xpp.next();
+                                deaneryBuilder.setAddress(xpp.getText());
+                            }
+                            else if (xpp.getName().equals("room")){
+                                xpp.next();
+                                deaneryBuilder.setRoom(xpp.getText());
+                            }
+                            else if (xpp.getName().equals("phone") && parent.equals("deanery")){
+                                xpp.next();
+                                deaneryBuilder.setPhone(xpp.getText());
+                            }
+                            else if (xpp.getName().equals("e-mail")){
+                                xpp.next();
+                                deaneryBuilder.setEmail(xpp.getText());
+                            }
                         }
 
                         break;
@@ -95,13 +124,18 @@ public class GuidebookFragment extends Fragment{
                         if(xpp.getName().equals("section"))
                         {
                             sectionBuilder.setId(counter)
-                                    .setPersons((LinkedList<Person>) tmpPersons.clone());
+                                    .setPersons((LinkedList<Person>) tmpPersons.clone())
+                                    .setDeaneries((LinkedList<Deanery>) tmpDeaneries.clone());
                             sections.add(sectionBuilder.build());
                             tmpPersons.clear();
+                            tmpDeaneries.clear();
                             counter++;
                         }
                         else if (xpp.getName().equals("person")) {
                             tmpPersons.add(personBuilder.build());
+                        }
+                        else if (xpp.getName().equals("deanery")) {
+                            tmpDeaneries.add(deaneryBuilder.build());
                         }
                         break;
                     default:

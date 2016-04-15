@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <guidebook>
     <section>
         <title>Профком студентів ЗНТУ</title>
@@ -9,112 +8,682 @@
             <vk>https://vk.com/club4541168</vk>
             <additional>вул. Жуковського 64, м. Запоріжжя, Україна, 69063. Каб 368а.</additional>
         </person>
+
         <person>
-            <job>TEST</job>
-            <name>TEST</name>
-            <phone>+380667142293</phone>
-            <vk>https://vk.com/</vk>
-            <additional>TEST</additional>
+            <job>Заступник голови профкому студентів ЗНТУ</job>
+            <name>Дубина Вадим Миколайович</name>
+            <phone>+380617698211</phone>
+            <vk></vk>
+            <additional>вул. Жуковського 64, м. Запоріжжя, Україна, 69063. Каб 368а.</additional>
         </person>
+
+        <person>
+            <job>Заступник голови профкому студентів ЗНТУ</job>
+            <name>Касьяненко Євген Миколайович</name>
+            <phone>+380617698340</phone>
+            <vk></vk>
+            <additional>вул. Жуковського 64, м. Запоріжжя, Україна, 69063. Каб 329.</additional>
+        </person>
+
+        <person>
+            <job>Заступник голови профкому студентів ЗНТУ</job>
+            <name>Зінченко Марина Михайлівна</name>
+            <phone>+380617641870</phone>
+            <vk></vk>
+            <additional>вул. Жуковського 64, м. Запоріжжя, Україна, 69063. Каб 405.</additional>
+        </person>
+
+        <person>
+            <job>Помічнік голови профкому студентів ЗНТУ</job>
+            <name>Кашуба Юлія Михайлівна</name>
+            <phone>+380612244235</phone>
+            <vk></vk>
+            <additional>вул. Жуковського 64, м. Запоріжжя, Україна, 69063. Каб 368а.</additional>
+        </person>
+
+
+
     </section>
+
+
     <section>
         <title>Транспортний факультет (ТФ)</title>
+        <person>
+            <job>Декан факультету</job>
+            <name>к.т.н., доцент, академік Транспортної Академії Козирєв Володимир Хомич</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Заступник декана</job>
+            <name>ст. викл. Каплуновська Алла Миколаївна</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
         <person>
             <job>Голова профбюро студентів факультету</job>
             <name>Безсмертний Владислав</name>
             <phone>+380951345338</phone>
             <vk>https://vk.com/tf_zntu</vk>
-            <additional> </additional>
+            <additional></additional>
         </person>
+
+        <deanery>
+            <title>Деканат факультету</title>
+            <address>вул. Жуковського 64, м. Запоріжжя, Україна, 69063.</address>
+            <room>245</room>
+            <phone>+380617698317</phone>
+            <e-mail>dekanat_tf@zntu.edu.ua</e-mail>
+        </deanery>
     </section>
+
+
     <section>
-        <title>Транспортний факультет (ТФ)</title>
+        <title>Машинобудівний факультет (МФ)</title>
+        <person>
+            <job>Декан факультету</job>
+            <name>к.т.н, доцент, академік Підйомно-транспортної академії наук України Глушко Василь Іванович</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Заступник декана</job>
+            <name>ст. викладач Клименко Ганна Вікторівна</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
         <person>
             <job>Голова профбюро студентів факультету</job>
-            <name>Безсмертний Владислав</name>
-            <phone>+380951345338</phone>
-            <vk>https://vk.com/tf_zntu</vk>
-            <additional> </additional>
+            <name>Тихінський Олександр</name>
+            <phone>+380982401633</phone>
+            <vk>https://vk.com/club106207732</vk>
+            <additional></additional>
         </person>
+
+        <deanery>
+            <title>Деканат факультету</title>
+            <address>вул. Жуковського 64, м. Запоріжжя, Україна, 69063.</address>
+            <room>380</room>
+            <phone>+380617698350</phone>
+            <e-mail>dekanat_mbf@zntu.edu.ua</e-mail>
+        </deanery>
     </section>
+
+
+
     <section>
-        <title>Транспортний факультет (ТФ)</title>
+        <title>Інженерно-фізичний факультет (ІФФ)</title>
+        <person>
+            <job>Декан факультету</job>
+            <name>к.т.н., доцент Климов Олександр Володимирович</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Заступник декана</job>
+            <name>к.т.н., доцент Івахненко Євген Іванович</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
         <person>
             <job>Голова профбюро студентів факультету</job>
-            <name>Безсмертний Владислав</name>
-            <phone>+380951345338</phone>
-            <vk>https://vk.com/tf_zntu</vk>
-            <additional> </additional>
+            <name>Савченко Ілля</name>
+            <phone>+380664686627</phone>
+            <vk>https://vk.com/club101087997</vk>
+            <additional></additional>
         </person>
+
+        <deanery>
+            <title>Деканат факультету</title>
+            <address>вул. Жуковського 64, м. Запоріжжя, Україна, 69063.</address>
+            <room>345</room>
+            <phone>+380617644674</phone>
+            <e-mail>dekanat_if@zntu.edu.ua</e-mail>
+        </deanery>
     </section>
+
+
+
     <section>
-        <title>Транспортний факультет (ТФ)</title>
+        <title>Електротехнічний факультет (ЕТФ)</title>
+        <person>
+            <job>Декан факультету</job>
+            <name>к.т.н. Антонов Микола Леонідович</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Заступник декана</job>
+            <name>к.т.н. Олександр Анатолійович Шрам</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
         <person>
             <job>Голова профбюро студентів факультету</job>
-            <name>Безсмертний Владислав</name>
-            <phone>+380951345338</phone>
-            <vk>https://vk.com/tf_zntu</vk>
-            <additional> </additional>
+            <name>Жежера Іван</name>
+            <phone>+380991812750</phone>
+            <vk>https://vk.com/profburo_etf</vk>
+            <additional></additional>
         </person>
+
+        <deanery>
+            <title>Деканат факультету</title>
+            <address>вул. Жуковського 64, м. Запоріжжя, Україна, 69063.</address>
+            <room>266</room>
+            <phone>+380617644625</phone>
+            <e-mail>dekanat_etf@zntu.edu.ua</e-mail>
+        </deanery>
     </section>
+
+
+
     <section>
-        <title>Транспортний факультет (ТФ)</title>
+        <title>Факультет радіоелектроніки і телекомунікацій (ФРЕТ)</title>
+        <person>
+            <job>Декан факультету</job>
+            <name> к.т.н, доцент Кабак Владислав Семенович</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Заступник декана</job>
+            <name>ст. викладач Куляба-Харитонова Тетяна Іванівна</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
         <person>
             <job>Голова профбюро студентів факультету</job>
-            <name>Безсмертний Владислав</name>
-            <phone>+380951345338</phone>
-            <vk>https://vk.com/tf_zntu</vk>
-            <additional> </additional>
+            <name>Дейнека Анна</name>
+            <phone>+380666695902</phone>
+            <vk>http://vk.com/profburo_fret</vk>
+            <additional></additional>
         </person>
+
+        <deanery>
+            <title>Деканат факультету</title>
+            <address>вул. Жуковського 64, м. Запоріжжя, Україна, 69063.</address>
+            <room>369</room>
+            <phone>+380617698306</phone>
+            <e-mail>dekanat_fret@zntu.edu.ua</e-mail>
+        </deanery>
     </section>
+
+
+
     <section>
-        <title>Транспортний факультет (ТФ)</title>
+        <title>Факультет комп'ютерних наук і технологій (ФКНТ)</title>
+        <person>
+            <job>Декан факультету</job>
+            <name>к.т.н, доцент Касьян Микола Миколайович</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Заступник декана</job>
+            <name>ст. викладач Рибін Вадим Олегович</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
         <person>
             <job>Голова профбюро студентів факультету</job>
-            <name>Безсмертний Владислав</name>
-            <phone>+380951345338</phone>
-            <vk>https://vk.com/tf_zntu</vk>
-            <additional> </additional>
+            <name>Косміна Наталія</name>
+            <phone>+380997452292</phone>
+            <vk>https://vk.com/profb_fknt</vk>
+            <additional></additional>
         </person>
+
+        <deanery>
+            <title>Деканат факультету</title>
+            <address>вул. Жуковського 64, м. Запоріжжя, Україна, 69063.</address>
+            <room>362</room>
+            <phone>+380617643361</phone>
+            <e-mail>dekanat_fiot@zntu.edu.ua</e-mail>
+        </deanery>
     </section>
+
+
     <section>
-        <title>Транспортний факультет (ТФ)</title>
+        <title>Факультет економіки та управління (ФЕУ)</title>
+        <person>
+            <job>Декан факультету</job>
+            <name>к.е.н., доцент Корольков Владислав Васильович</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Заступник декана</job>
+            <name>Войтенко Світлана Володимирівна</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Заступник декана</job>
+            <name>Сигида Галина Анатолівна</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
         <person>
             <job>Голова профбюро студентів факультету</job>
-            <name>Безсмертний Владислав</name>
-            <phone>+380951345338</phone>
-            <vk>https://vk.com/tf_zntu</vk>
-            <additional> </additional>
+            <name>Корогод Михайло</name>
+            <phone>+380666663466</phone>
+            <vk>https://vk.com/profbrofey</vk>
+            <additional></additional>
         </person>
+
+        <deanery>
+            <title>Деканат факультету</title>
+            <address>вул. Жуковського 64, м. Запоріжжя, Україна, 69063.</address>
+            <room>278, 277-Б</room>
+            <phone>+380617643416</phone>
+            <e-mail>dekanat_feu@zntu.edu.ua</e-mail>
+        </deanery>
     </section>
+
+
+
     <section>
-        <title>Транспортний факультет (ТФ)</title>
+        <title>Гуманітарний факультет (ГФ)</title>
+        <person>
+            <job>Декан факультету</job>
+            <name>к.і.н., доцент Дєдков Микола Васильович</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Заступник декана</job>
+            <name>ст. викл. Бондаренко Олена Миколаївна</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
         <person>
             <job>Голова профбюро студентів факультету</job>
-            <name>Безсмертний Владислав</name>
-            <phone>+380951345338</phone>
-            <vk>https://vk.com/tf_zntu</vk>
-            <additional> </additional>
+            <name>Кравченко Євген</name>
+            <phone>+380669605660</phone>
+            <vk>https://vk.com/profburogf</vk>
+            <additional></additional>
         </person>
+
+        <deanery>
+            <title>Деканат факультету</title>
+            <address>вул. Жуковського 64, м. Запоріжжя, Україна, 69063.</address>
+            <room>273</room>
+            <phone>+380617698307</phone>
+            <e-mail>dekanat_gf@zntu.edu.ua</e-mail>
+        </deanery>
     </section>
+
+
     <section>
-        <title>Транспортний факультет (ТФ)</title>
+        <title>Факультет управління фізичною культурою та спортом (ФУФКС)</title>
+        <person>
+            <job>Декан факультету</job>
+            <name>к.п.н., доцeнт Пущина Ірина Вікторівна</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Заступник декана</job>
+            <name>ст. викл. Чередниченко Інна Анатоліївна</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
         <person>
             <job>Голова профбюро студентів факультету</job>
-            <name>Безсмертний Владислав</name>
-            <phone>+380951345338</phone>
-            <vk>https://vk.com/tf_zntu</vk>
-            <additional> </additional>
+            <name>Шевченко Ірина</name>
+            <phone>+380996653479</phone>
+            <vk>https://vk.com/club92730838</vk>
+            <additional></additional>
         </person>
+
+        <deanery>
+            <title>Деканат факультету</title>
+            <address>вул. Тургенєва 39, м. Запоріжжя, Україна, 69063.</address>
+            <room>392a</room>
+            <phone>+380617698308</phone>
+            <e-mail>dekanat_ufks@zntu.edu.ua</e-mail>
+        </deanery>
     </section>
+
+
+
+
     <section>
-        <title>Транспортний факультет (ТФ)</title>
+        <title>Факультет міжнародного туризму та управління персоналом (ФМТУ)</title>
+        <person>
+            <job>Декан факультету</job>
+            <name>к.ф-м.н., доц. Васильєва Олена Олексіївна</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Заступник декана денної форми навчання</job>
+            <name>ст. викл. Гіль Людмила Анатоліївна</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Заступник декана заочної форми навчання</job>
+            <name>ст. викл. Гнєздовський Олексій Валентинович</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
         <person>
             <job>Голова профбюро студентів факультету</job>
-            <name>Безсмертний Владислав</name>
-            <phone>+380951345338</phone>
-            <vk>https://vk.com/tf_zntu</vk>
-            <additional> </additional>
+            <name>Лілія Джеппарова</name>
+            <phone>+380685805973</phone>
+            <vk>https://vk.com/fmtu_zntu</vk>
+            <additional></additional>
+        </person>
+
+        <deanery>
+            <title>Деканат факультету</title>
+            <address>вул. Тургенєва 39, м. Запоріжжя, Україна, 69063.</address>
+            <room>385</room>
+            <phone>+380617698568</phone>
+            <e-mail>dekanat_mtu@zntu.edu.ua</e-mail>
+        </deanery>
+    </section>
+
+
+
+    <section>
+        <title>Гуманітарно-правовий факультет (ГП)</title>
+        <person>
+            <job>Декан факультету</job>
+            <name>к.ф.н., доцент Гайворонська Таїсія Олексіївна</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Заступник декана</job>
+            <name>Семенцова Оксана Миколаївна</name>
+            <phone></phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Голова профбюро студентів факультету</job>
+            <name>Зінченко Ілля</name>
+            <phone>+380958991244</phone>
+            <vk>https://vk.com/gpf_zp</vk>
+            <additional></additional>
+        </person>
+
+        <deanery>
+            <title>Деканат факультету</title>
+            <address>вул. Тургенєва 39, м. Запоріжжя, Україна, 69063.</address>
+            <room>491</room>
+            <phone>+380617698567</phone>
+            <e-mail>dekanat_gp@zntu.edu.ua</e-mail>
+        </deanery>
+    </section>
+
+
+    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+    <section>
+        <title>Студмістечко ЗНТУ</title>
+        <person>
+            <job>Директор студмістечка</job>
+            <name>Дубина Вадим Миколайович</name>
+            <phone>+380617698211</phone>
+            <vk></vk>
+            <additional>Дирекція студмістечка (гурт. №5)</additional>
+        </person>
+
+        <person>
+            <job>Заступник директора</job>
+            <name>Кеда Вадим Сергійович</name>
+            <phone>+380617698211</phone>
+            <vk></vk>
+            <additional>Дирекція студмістечка (гурт. №5)</additional>
         </person>
     </section>
-</guidebook>
+
+    <section>
+        <title>Гуртожиток №2</title>
+        <person>
+            <job>Завідувач</job>
+            <name>Коміссаров Євген Вікторович</name>
+            <phone>+380617698605</phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Вахта гуртожитку</job>
+            <name></name>
+            <phone>+380617698230</phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Голова студентської ради гуртожитку</job>
+            <name>Капустян Дмитро</name>
+            <phone>+380668489081</phone>
+            <vk>https://vk.com/zntuhostel2</vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Директор студ. самоврядування гуртожитку</job>
+            <name>Миронов Костянтин</name>
+            <phone>+380661789940</phone>
+            <vk>https://vk.com/zntuhostel2</vk>
+            <additional></additional>
+        </person>
+
+    </section>
+
+
+    <section>
+        <title>Гуртожиток №3</title>
+        <person>
+            <job>Завідувач</job>
+            <name>Плахтій-Ткаченко Раїса Іванівна</name>
+            <phone>+380617874558</phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Голова студентської ради гуртожитку</job>
+            <name>Куковицька Катерина</name>
+            <phone>+380996478545</phone>
+            <vk>https://vk.com/zntu_gurt3</vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Директор студ. самоврядування гуртожитку</job>
+            <name>Токмаков Iгор</name>
+            <phone>+380660933530</phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+    </section>
+
+    <section>
+        <title>Гуртожиток №4</title>
+        <person>
+            <job>Завідувач</job>
+            <name>Ігнашов Валерій Валерійович</name>
+            <phone>+380617698583</phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Вахта гуртожитку</job>
+            <name></name>
+            <phone>+380617698231</phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Голова студентської ради гуртожитку</job>
+            <name>Міщенко Володимир</name>
+            <phone>+380507542247</phone>
+            <vk>https://vk.com/typicalobwaga</vk>
+            <additional></additional>
+        </person>
+
+        <person>
+            <job>Директор студ. самоврядування гуртожитку</job>
+            <name>Іваницький Назарій</name>
+            <phone>+380660899676</phone>
+            <vk></vk>
+            <additional></additional>
+        </person>
+    </section>
+
+    <section>
+        <title>Прес-служба профкому студентів ЗНТУ</title>
+        <person>
+            <job>Голова комісії</job>
+            <name>Вичужаніна Сніжана</name>
+            <phone>+380506772551</phone>
+            <vk>https://vk.com/club68429741</vk>
+            <additional></additional>
+        </person>
+    </section>
+
+    <section>
+        <title>Фан-клуб спортивних команд ЗНТУ профкому студентів ЗНТУ</title>
+        <person>
+            <job>Голова комісії</job>
+            <name>Пащенко Андрій</name>
+            <phone>+380668677373</phone>
+            <vk>https://vk.com/fan_club_zntu</vk>
+            <additional></additional>
+        </person>
+    </section>
+
+    <section>
+        <title>Комісія оздоровлення профкому студентів ЗНТУ</title>
+        <person>
+            <job>Голова комісії</job>
+            <name>Ніколаєнко Тетяна</name>
+            <phone>+380955342947</phone>
+            <vk>https://vk.com/club8904866</vk>
+            <additional>вул. Жуковського 64, м. Запоріжжя, Україна, 69063. Каб 405.</additional>
+        </person>
+    </section>
+
+
+    <section>
+        <title>Комісія соціального захисту профкому студентів ЗНТУ</title>
+        <person>
+            <job>Голова комісії</job>
+            <name>Рашевська Тетяна</name>
+            <phone>+380999565812</phone>
+            <vk>https://vk.com/club8904866</vk>
+            <additional>вул. Жуковського 64, м. Запоріжжя, Україна, 69063. Каб 405.</additional>
+        </person>
+    </section>
+
+    <section>
+        <title>Стипендіальна комісія профкому студентів ЗНТУ</title>
+        <person>
+            <job>Голова комісії</job>
+            <name>Родькіна Альона</name>
+            <phone>+380667687747</phone>
+            <vk></vk>
+            <additional>вул. Жуковського 64, м. Запоріжжя, Україна, 69063. Каб 405.</additional>
+        </person>
+    </section>
+
+    <section>
+        <title>Комісія інформаційних технологій профкому студентів ЗНТУ</title>
+        <person>
+            <job>Голова комісії</job>
+            <name>Туленков Артем</name>
+            <phone>+380992596006</phone>
+            <vk>https://vk.com/sitzntu</vk>
+            <additional>вул. Жуковського 64, м. Запоріжжя, Україна, 69063. Каб 329.</additional>
+        </person>
+    </section>
+
+    <section>
+        <title>Виховний відділ профкому студентів ЗНТУ</title>
+        <person>
+            <job>Голова відділу</job>
+            <name>Кізілова Аліна</name>
+            <phone>+380501501166</phone>
+            <vk></vk>
+            <additional>вул. Жуковського 64, м. Запоріжжя, Україна, 69063. Каб 196.</additional>
+        </person>
+    </section>
+
+    <section>
+        <title>Охоронний спецпідрозділ "ЩИТ" ЗНТУ</title>
+        <person>
+            <job>Секретар</job>
+            <name></name>
+            <phone>+380617698239</phone>
+            <vk></vk>
+            <additional>вул. Жуковського 64, м. Запоріжжя, Україна, 69063.</additional>
+        </person>
+    </section>
+
+    <section>
+        <title>Рада студентів технічних ВНЗ Європи (BEST)  у ЗНТУ</title>
+        <person>
+            <job>Голова організації BEST у ЗНТУ</job>
+            <name>Капічулін Владислав</name>
+            <phone>+380965075111</phone>
+            <vk>https://vk.com/best_zntu</vk>
+            <additional></additional>
+        </person>
+    </section>
+
+</guidebook>  

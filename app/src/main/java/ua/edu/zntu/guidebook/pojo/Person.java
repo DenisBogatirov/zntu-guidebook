@@ -1,12 +1,9 @@
 package ua.edu.zntu.guidebook.pojo;
 
-import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.io.Serializable;
@@ -48,20 +45,35 @@ public class Person implements Serializable{
         return additional;
     }
 
-    public View getPersonView(Context context) {
+    public View getView(Context context) {
         LayoutInflater layoutInflater =
                 (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View personView = layoutInflater.inflate(R.layout.person_layout, null);
+        final View personVk = layoutInflater.inflate(R.layout.person_vk, null);
+        final View personPhone = layoutInflater.inflate(R.layout.person_phone, null);
+
         TextView txtJob = (TextView) personView.findViewById(R.id.person_job_tv);
         TextView txtName = (TextView) personView.findViewById(R.id.person_name_tv);
-        TextView txtPhone = (TextView) personView.findViewById(R.id.person_phone_tv);
-        TextView txtVk = (TextView) personView.findViewById(R.id.person_vk_tv);
+
+        LinearLayout personExpandable = (LinearLayout) personView.findViewById(R.id.person_expandable);
+
+
+        TextView txtPhone = (TextView) personPhone.findViewById(R.id.person_phone_tv);
+        TextView txtVk = (TextView) personVk.findViewById(R.id.person_vk_tv);
+
         TextView txtAdditional = (TextView) personView.findViewById(R.id.person_additional_tv);
+
+        if (this.phone != null){
+            txtPhone.setText(phone);
+            personExpandable.addView(personPhone);
+        }
+        if (this.vk != null){
+            txtVk.setText(vk);
+            personExpandable.addView(personVk);
+        }
 
         txtJob.setText(job);
         txtName.setText(name);
-        txtPhone.setText(phone);
-        txtVk.setText(vk);
         txtAdditional.setText(additional);
 
         return personView;

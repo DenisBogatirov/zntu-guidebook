@@ -37,7 +37,7 @@ import ua.edu.zntu.guidebook.ui.EndlessRecyclerViewScrollListener;
 public class NewsFragment extends Fragment {
 
     public static final String TAG = "NewsFragmentTag";
-    private static final int LAYOUT = R.layout.new_news_layout;
+    private static final int LAYOUT = R.layout.news_layout;
     public static final String LOG_TAG = "MyTAG";
 
     private View view;
