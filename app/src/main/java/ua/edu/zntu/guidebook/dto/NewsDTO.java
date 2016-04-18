@@ -155,5 +155,34 @@ public class NewsDTO {
         this.newsImgHeight = newsImgHeight;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) { return true; }
+        if (!(o instanceof NewsDTO)) { return false; }
+
+        NewsDTO newsDTO = (NewsDTO) o;
+
+        if (!getNewsID().equals(newsDTO.getNewsID())) { return false; }
+        if (!getNewsDate().equals(newsDTO.getNewsDate())) { return false; }
+        if (!getNewsTitle().equals(newsDTO.getNewsTitle())) { return false; }
+        if (!getNewsLitteImg().equals(newsDTO.getNewsLitteImg())) { return false; }
+        if (!getNewsText().equals(newsDTO.getNewsText())) { return false; }
+        if (!getNewsImgWidth().equals(newsDTO.getNewsImgWidth())) { return false; }
+        if (!getNewsImgHeight().equals(newsDTO.getNewsImgHeight())) { return false; }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getNewsID().hashCode();
+        result = 31 * result + getNewsDate().hashCode();
+        result = 31 * result + getNewsTitle().hashCode();
+        result = 31 * result + getNewsLitteImg().hashCode();
+        result = 31 * result + getNewsText().hashCode();
+        result = 31 * result + getNewsImgWidth().hashCode();
+        result = 31 * result + getNewsImgHeight().hashCode();
+        return result;
+    }
 }
 

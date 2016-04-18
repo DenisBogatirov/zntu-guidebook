@@ -4,7 +4,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Повiдомлення</string>
     <string name="menu_item_timetable">Розклад</string>
     <string name="menu_item_find">Пошук аудиторії</string>
     <string name="menu_item_news">Новини профкому</string>

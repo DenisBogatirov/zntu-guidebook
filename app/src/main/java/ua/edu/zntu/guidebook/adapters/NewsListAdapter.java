@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +12,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.LinkedList;
 
 import ua.edu.zntu.guidebook.R;
-import ua.edu.zntu.guidebook.api.ApiConstants;
 import ua.edu.zntu.guidebook.dto.NewsDTO;
 
 public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHolder>{
@@ -61,9 +58,9 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHo
 
         holder.imageView.setMinimumHeight(height);
 
-        Glide.with(context).load(ApiConstants.BASE_URL + news.get(position).getNewsLitteImg())
+        Glide.with(context).load(news.get(position).getNewsLitteImg())
                 .override(width, height)
-
+                .fitCenter()
                 .into(holder.imageView);
     }
 

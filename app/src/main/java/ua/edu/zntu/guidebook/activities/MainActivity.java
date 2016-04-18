@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private static final int LAYOUT = R.layout.activity_main;
 
+
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
@@ -63,9 +64,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mRegistrationBroadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-
-                SharedPreferences sharedPreferences =
-                        PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean sentToken = sharedPreferences
                         .getBoolean(QuickstartPreferences.SENT_TOKEN_TO_SERVER, false);
 
@@ -101,17 +100,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             checkedItem = 0;
         }
 
-        initToolbar();
+        initToolbar(this);
         initNavigationView(checkedItem);
     }
 
 
-    private void initToolbar() {
+    private void initToolbar(final Context context) {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.app_name);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
+                boolean notificationsState;
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences.Editor editor;
+                switch (item.getItemId()) {
+                case R.id.action_settings:
+                    notificationsState = sharedPreferences.getBoolean("NotificationsState", true);
+                    editor = sharedPreferences.edit();
+                    item.setChecked(!notificationsState);
+                    editor.putBoolean("NotificationsState", !notificationsState);
+                    editor.commit();
+                }
                 return false;
             }
         });
