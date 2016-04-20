@@ -126,9 +126,7 @@ public class NewsFragment extends Fragment {
                             int code = response.code();
                             Log.e(LOG_TAG, String.valueOf(code));
                         }
-                        else if (e instanceof ConnectException){
                             Snackbar.make(view, "Неможливо оновити новини", Snackbar.LENGTH_LONG).show();
-                        }
                             e.printStackTrace();
 
                     }

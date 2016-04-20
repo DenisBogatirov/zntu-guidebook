@@ -40,7 +40,7 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Find"
+        android:text="@string/rooms_find"
         android:id="@+id/btn_find"
-        android:onClick="find" />
+        />
 </LinearLayout>

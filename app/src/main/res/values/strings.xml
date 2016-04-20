@@ -17,4 +17,5 @@
     <string name="address_label">Адресса:</string>
     <string name="room_label">Аудиторія:</string>
     <string name="email_label">E-mail:</string>
+    <string name="rooms_find">Знайти</string>
 </resources>
