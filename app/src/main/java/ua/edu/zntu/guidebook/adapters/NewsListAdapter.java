@@ -41,27 +41,31 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsHo
         holder.textTitle.setText(String.valueOf(news.get(position).getNewsTitle()));
         holder.textText.setText(news.get(position).getNewsText());
 
-        DisplayMetrics metrics = new DisplayMetrics();
-        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        wm.getDefaultDisplay().getMetrics(metrics);
-        int originalWidth = news.get(position).getNewsImgWidth();
-        int originalHeight = news.get(position).getNewsImgHeight();
-        float cardViewWidth = metrics.widthPixels - 20*metrics.density;
-        float coefficient;
-        int width;
-        int height;
+        if (news.get(position).getNewsImgWidth() != null && news.get(position).getNewsImgHeight() != null) {
 
-        coefficient = cardViewWidth/originalWidth ;
+            DisplayMetrics metrics = new DisplayMetrics();
+            WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+            wm.getDefaultDisplay().getMetrics(metrics);
+            int originalWidth = news.get(position).getNewsImgWidth();
+            int originalHeight = news.get(position).getNewsImgHeight();
+            float cardViewWidth = metrics.widthPixels - 20 * metrics.density;
+            float coefficient;
+            int width;
+            int height;
 
-        width = (int) (originalWidth * coefficient + 1);
-        height = (int) (originalHeight * coefficient);
+            coefficient = cardViewWidth / originalWidth;
 
-        holder.imageView.setMinimumHeight(height);
+            width = (int) (originalWidth * coefficient + 1);
+            height = (int) (originalHeight * coefficient);
 
-        Glide.with(context).load(news.get(position).getNewsLitteImg())
-                .override(width, height)
-                .fitCenter()
-                .into(holder.imageView);
+            holder.imageView.setMinimumHeight(height);
+
+            Glide.with(context)
+                    .load(news.get(position).getNewsLitteImg())
+                    .override(width, height)
+                    .fitCenter()
+                    .into(holder.imageView);
+        }
     }
 
     @Override
